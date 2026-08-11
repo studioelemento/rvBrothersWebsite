@@ -1,6 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
-  Shield,
   ShieldCheck,
   Package,
   Truck,
@@ -16,31 +16,7 @@ import {
   TrendingUp
 } from 'lucide-react';
 
-export default function Footer({ setActivePage }) {
-  const handleNavClick = (item) => {
-    if (item === 'Our Business Divisions' || item === 'Our Businesses') {
-      if (setActivePage) setActivePage('businesses');
-      window.location.hash = '#businesses';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else if (item === 'Shop' || item === 'Products' || item === 'View All Categories' || item === 'Industrial Supplies' || item === 'Bearings & Power Transmission' || item === 'Automotive & Electricals' || item === 'Tools & Hardware' || item === 'Packaging & Consumables') {
-      if (setActivePage) setActivePage('shop');
-      window.location.hash = '#shop';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else if (item === 'Brands' || item === 'Our Brands' || item === 'Featured Brands') {
-      if (setActivePage) setActivePage('brands');
-      window.location.hash = '#brands';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else if (item === 'About Us' || item === 'Why RV Brothers' || item === 'About') {
-      if (setActivePage) setActivePage('about');
-      window.location.hash = '#about';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else if (item === 'Home') {
-      if (setActivePage) setActivePage('home');
-      window.location.hash = '#home';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  };
-
+export default function Footer() {
   return (
     <footer className="w-full bg-[#02050f] text-slate-300 pt-16 pb-8 border-t border-slate-900/60 relative overflow-hidden font-sans">
       {/* Background soft glow blobs */}
@@ -55,8 +31,8 @@ export default function Footer({ setActivePage }) {
           {/* Column 1: Logo, Intro & Brand Trust Features */}
           <div className="lg:col-span-4 flex flex-col items-start">
             {/* Logo */}
-            <div
-              onClick={() => handleNavClick('Home')}
+            <Link
+              to="/"
               className="flex items-center gap-3 group cursor-pointer mb-6"
             >
               <div className="w-10 h-10 bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-600/20 transform group-hover:scale-105 transition-all duration-300">
@@ -73,7 +49,7 @@ export default function Footer({ setActivePage }) {
                   BUSINESS CONSORTIUM
                 </div>
               </div>
-            </div>
+            </Link>
 
             <p className="text-slate-400 text-sm leading-relaxed mb-6 max-w-sm">
               RV Brothers is a business consortium committed to delivering quality products
@@ -97,98 +73,83 @@ export default function Footer({ setActivePage }) {
               {/* Feature 2 */}
               <div className="flex items-start gap-4 group">
                 <div className="p-2.5 bg-blue-950/40 rounded-full text-blue-500 border border-blue-500/10 group-hover:border-blue-500/30 transition-all duration-300">
-                  <Package className="w-5 h-5" />
+                  <Truck className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-semibold text-slate-200 group-hover:text-white transition-colors">Wide Product Range</h4>
-                  <p className="text-xs text-slate-400 mt-1">Products across multiple categories</p>
+                  <h4 className="text-sm font-semibold text-slate-200 group-hover:text-white transition-colors">Reliable Distribution</h4>
+                  <p className="text-xs text-slate-400 mt-1">Strong logistics and supply chain network</p>
                 </div>
               </div>
 
               {/* Feature 3 */}
               <div className="flex items-start gap-4 group">
                 <div className="p-2.5 bg-blue-950/40 rounded-full text-blue-500 border border-blue-500/10 group-hover:border-blue-500/30 transition-all duration-300">
-                  <Truck className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="text-sm font-semibold text-slate-200 group-hover:text-white transition-colors">Pan India Delivery</h4>
-                  <p className="text-xs text-slate-400 mt-1">Efficient logistics, on-time delivery</p>
-                </div>
-              </div>
-
-              {/* Feature 4 */}
-              <div className="flex items-start gap-4 group">
-                <div className="p-2.5 bg-blue-950/40 rounded-full text-blue-500 border border-blue-500/10 group-hover:border-blue-500/30 transition-all duration-300">
                   <Headphones className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-semibold text-slate-200 group-hover:text-white transition-colors">Dedicated Support</h4>
-                  <p className="text-xs text-slate-400 mt-1">We are here to help, always</p>
+                  <h4 className="text-sm font-semibold text-slate-200 group-hover:text-white transition-colors">24/7 Dedicated Support</h4>
+                  <p className="text-xs text-slate-400 mt-1">Always available to assist our partners</p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Columns 2-4: Navigation Menus */}
-          <div className="lg:col-span-5 grid grid-cols-3 gap-6 sm:gap-8">
-            {/* Category: COMPANY */}
-            <div>
-              <h3 className="text-xs font-bold tracking-widest text-white uppercase mb-4 relative pb-2 inline-block">
-                Company
-                <span className="absolute bottom-0 left-0 w-6 h-[2px] bg-blue-600 rounded-full"></span>
-              </h3>
-              <ul className="space-y-3 mt-4">
-                {[
-                  'About Us',
-                  'Our Business Divisions',
-                  'Why RV Brothers',
-                  'Our Network',
-                  'Careers',
-                  'Contact Us',
-                ].map((item, idx) => (
-                  <li key={idx}>
-                    <button
-                      onClick={() => handleNavClick(item)}
-                      className="text-xs text-slate-400 hover:text-white flex items-center justify-between group transition-all duration-200 transform hover:translate-x-1 w-full text-left"
-                    >
-                      <span>{item}</span>
-                      <ChevronRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 text-blue-500 transition-opacity duration-200" />
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {/* Column 2: Quick Links */}
+          <div className="lg:col-span-2">
+            <h3 className="text-xs font-bold tracking-widest text-white uppercase mb-4 relative pb-2 inline-block">
+              Quick Links
+              <span className="absolute bottom-0 left-0 w-6 h-[2px] bg-blue-600 rounded-full"></span>
+            </h3>
+            <ul className="space-y-3 mt-4">
+              {[
+                { name: 'Home', path: '/' },
+                { name: 'Our Businesses', path: '/businesses' },
+                { name: 'Shop', path: '/shop' },
+                { name: 'Brands', path: '/brands' },
+                { name: 'About Us', path: '/about' },
+                { name: 'Contact', path: '/contact' },
+              ].map((link, idx) => (
+                <li key={idx}>
+                  <Link
+                    to={link.path}
+                    className="text-xs text-slate-400 hover:text-white flex items-center justify-between group transition-all duration-200 transform hover:translate-x-1"
+                  >
+                    <span>{link.name}</span>
+                    <ChevronRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 text-blue-500 transition-opacity duration-200" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-            {/* Category: PRODUCTS */}
-            <div>
-              <h3 className="text-xs font-bold tracking-widest text-white uppercase mb-4 relative pb-2 inline-block">
-                Products
-                <span className="absolute bottom-0 left-0 w-6 h-[2px] bg-blue-600 rounded-full"></span>
-              </h3>
-              <ul className="space-y-3 mt-4">
-                {[
-                  'Industrial Supplies',
-                  'Bearings & Power Transmission',
-                  'Automotive & Electricals',
-                  'Tools & Hardware',
-                  'Packaging & Consumables',
-                  'View All Categories',
-                ].map((item, idx) => (
-                  <li key={idx}>
-                    <button
-                      onClick={() => handleNavClick(item)}
-                      className="text-xs text-slate-400 hover:text-white flex items-center justify-between group transition-all duration-200 transform hover:translate-x-1 w-full text-left cursor-pointer"
-                    >
-                      <span>{item}</span>
-                      <ChevronRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 text-blue-500 transition-opacity duration-200" />
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {/* Column 3: Our Categories */}
+          <div className="lg:col-span-3">
+            <h3 className="text-xs font-bold tracking-widest text-white uppercase mb-4 relative pb-2 inline-block">
+              Our Categories
+              <span className="absolute bottom-0 left-0 w-6 h-[2px] bg-blue-600 rounded-full"></span>
+            </h3>
+            <ul className="space-y-3 mt-4">
+              {[
+                'Industrial Supplies',
+                'Bearings & Power Transmission',
+                'Automotive & Electricals',
+                'Tools & Hardware',
+                'Packaging & Consumables',
+                'View All Categories',
+              ].map((item, idx) => (
+                <li key={idx}>
+                  <Link
+                    to="/shop"
+                    className="text-xs text-slate-400 hover:text-white flex items-center justify-between group transition-all duration-200 transform hover:translate-x-1"
+                  >
+                    <span>{item}</span>
+                    <ChevronRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 text-blue-500 transition-opacity duration-200" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
 
-            {/* Category: PARTNER WITH US */}
-            <div>
+            <div className="mt-8">
               <h3 className="text-xs font-bold tracking-widest text-white uppercase mb-4 relative pb-2 inline-block">
                 Partner With Us
                 <span className="absolute bottom-0 left-0 w-6 h-[2px] bg-blue-600 rounded-full"></span>
@@ -203,17 +164,20 @@ export default function Footer({ setActivePage }) {
                   'Partnership Enquiry',
                 ].map((item, idx) => (
                   <li key={idx}>
-                    <a href={`#${item.toLowerCase().replace(/ /g, '-')}`} className="text-xs text-slate-400 hover:text-white flex items-center justify-between group transition-all duration-200 transform hover:translate-x-1">
+                    <Link
+                      to="/contact"
+                      className="text-xs text-slate-400 hover:text-white flex items-center justify-between group transition-all duration-200 transform hover:translate-x-1"
+                    >
                       <span>{item}</span>
                       <ChevronRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 text-blue-500 transition-opacity duration-200" />
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
             </div>
           </div>
 
-          {/* Column 5: Stay Connected & Follow Us */}
+          {/* Column 4: Stay Connected & Follow Us */}
           <div className="lg:col-span-3 flex flex-col">
             {/* Stay Connected */}
             <h3 className="text-xs font-bold tracking-widest text-white uppercase mb-4 relative pb-2 inline-block">
@@ -317,18 +281,18 @@ export default function Footer({ setActivePage }) {
         {/* BOTTOM LEVEL: COPYRIGHT & LEGAL SUB-LINKS */}
         <div className="flex flex-col sm:flex-row justify-between items-center pt-8 border-t border-slate-900/40 text-[10px] text-slate-500 gap-4">
           <div>
-            © 2024 RV Brothers Business Consortium. All rights reserved.
+            &copy; 2024 RV Brothers Business Consortium. All rights reserved.
           </div>
           <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
-            <a href="#privacy" className="hover:text-slate-300 transition-colors">Privacy Policy</a>
+            <Link to="/privacy" className="hover:text-slate-300 transition-colors">Privacy Policy</Link>
             <span className="text-slate-800">|</span>
-            <a href="#terms" className="hover:text-slate-300 transition-colors">Terms & Conditions</a>
+            <Link to="/terms" className="hover:text-slate-300 transition-colors">Terms & Conditions</Link>
             <span className="text-slate-800">|</span>
-            <a href="#shipping" className="hover:text-slate-300 transition-colors">Shipping Policy</a>
+            <Link to="/shipping" className="hover:text-slate-300 transition-colors">Shipping Policy</Link>
             <span className="text-slate-800">|</span>
-            <a href="#return" className="hover:text-slate-300 transition-colors">Return Policy</a>
+            <Link to="/return" className="hover:text-slate-300 transition-colors">Return Policy</Link>
             <span className="text-slate-800">|</span>
-            <a href="#sitemap" className="hover:text-slate-300 transition-colors">Sitemap</a>
+            <Link to="/sitemap" className="hover:text-slate-300 transition-colors">Sitemap</Link>
           </div>
         </div>
 

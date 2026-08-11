@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import {
   Shield,
   Award,
@@ -10,16 +11,12 @@ import {
   X
 } from 'lucide-react';
 
-export default function Navbar({ activePage, setActivePage }) {
+export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [cartCount, setCartCount] = useState(2);
+  const [cartCount] = useState(2);
+  const location = useLocation();
 
-  const navigateTo = (page, hash = '') => {
-    setActivePage(page);
-    window.location.hash = hash || (page === 'home' ? '#home' : `#${page}`);
-    setMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  const isActive = (path) => location.pathname === path;
 
   return (
     <>
@@ -46,8 +43,8 @@ export default function Navbar({ activePage, setActivePage }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
 
           {/* Logo */}
-          <div
-            onClick={() => navigateTo('home')}
+          <Link
+            to="/"
             className="flex items-center gap-3 group cursor-pointer"
           >
             {/* Stylized RV Monogram SVG */}
@@ -65,72 +62,69 @@ export default function Navbar({ activePage, setActivePage }) {
                 BUSINESS CONSORTIUM
               </div>
             </div>
-          </div>
+          </Link>
 
           {/* Desktop Navigation Links */}
           <nav className="hidden md:flex items-center gap-8">
-            <button
-              onClick={() => navigateTo('home')}
-              className={`text-sm font-semibold relative py-2 transition-colors ${activePage === 'home' ? 'text-white' : 'text-slate-300 hover:text-white'
-                }`}
+            <Link
+              to="/"
+              className={`text-sm font-semibold relative py-2 transition-colors ${isActive('/') ? 'text-white' : 'text-slate-300 hover:text-white'}`}
             >
               Home
-              {activePage === 'home' && (
+              {isActive('/') && (
                 <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 rounded-full"></span>
               )}
-            </button>
+            </Link>
 
-            <button
-              onClick={() => navigateTo('businesses')}
-              className={`text-sm font-semibold relative py-2 transition-colors ${activePage === 'businesses' ? 'text-white' : 'text-slate-300 hover:text-white'
-                }`}
+            <Link
+              to="/businesses"
+              className={`text-sm font-semibold relative py-2 transition-colors ${isActive('/businesses') ? 'text-white' : 'text-slate-300 hover:text-white'}`}
             >
               Our Businesses
-              {activePage === 'businesses' && (
+              {isActive('/businesses') && (
                 <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 rounded-full"></span>
               )}
-            </button>
+            </Link>
 
-            <button
-              onClick={() => navigateTo('shop')}
-              className={`text-sm font-semibold relative py-2 transition-colors ${activePage === 'shop' ? 'text-white' : 'text-slate-300 hover:text-white'
-                }`}
+            <Link
+              to="/shop"
+              className={`text-sm font-semibold relative py-2 transition-colors ${isActive('/shop') ? 'text-white' : 'text-slate-300 hover:text-white'}`}
             >
               Shop
-              {activePage === 'shop' && (
+              {isActive('/shop') && (
                 <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 rounded-full"></span>
               )}
-            </button>
+            </Link>
 
-            <button
-              onClick={() => navigateTo('brands')}
-              className={`text-sm font-semibold relative py-2 transition-colors ${activePage === 'brands' ? 'text-white' : 'text-slate-300 hover:text-white'
-                }`}
+            <Link
+              to="/brands"
+              className={`text-sm font-semibold relative py-2 transition-colors ${isActive('/brands') ? 'text-white' : 'text-slate-300 hover:text-white'}`}
             >
               Brands
-              {activePage === 'brands' && (
+              {isActive('/brands') && (
                 <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 rounded-full"></span>
               )}
-            </button>
+            </Link>
 
-            <button
-              onClick={() => navigateTo('about')}
-              className={`text-sm font-semibold relative py-2 transition-colors ${activePage === 'about' ? 'text-white' : 'text-slate-300 hover:text-white'
-                }`}
+            <Link
+              to="/about"
+              className={`text-sm font-semibold relative py-2 transition-colors ${isActive('/about') ? 'text-white' : 'text-slate-300 hover:text-white'}`}
             >
               About
-              {activePage === 'about' && (
+              {isActive('/about') && (
                 <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 rounded-full"></span>
               )}
-            </button>
+            </Link>
 
-            <button
-              onClick={() => navigateTo('home', '#contact')}
-              className="text-sm font-medium text-slate-300 hover:text-white transition-colors py-2 relative group"
+            <Link
+              to="/contact"
+              className={`text-sm font-semibold relative py-2 transition-colors ${isActive('/contact') ? 'text-white' : 'text-slate-300 hover:text-white'}`}
             >
               Contact
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300 rounded-full"></span>
-            </button>
+              {isActive('/contact') && (
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 rounded-full"></span>
+              )}
+            </Link>
           </nav>
 
           {/* Right Utility & CTA */}
@@ -149,12 +143,12 @@ export default function Navbar({ activePage, setActivePage }) {
                 </span>
               )}
             </button>
-            <button 
-              onClick={() => navigateTo('contact')}
-              className="bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold px-5 py-2.5 rounded-lg shadow-lg shadow-blue-600/25 transition-all duration-300 transform hover:scale-105 cursor-pointer"
+            <Link 
+              to="/contact"
+              className="bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold px-5 py-2.5 rounded-lg shadow-lg shadow-blue-600/25 transition-all duration-300 transform hover:scale-105 cursor-pointer block"
             >
               Partner With Us
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -180,48 +174,48 @@ export default function Navbar({ activePage, setActivePage }) {
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
           <div className="md:hidden bg-[#030712] border-b border-slate-900 px-4 pt-2 pb-6 space-y-3 absolute w-full left-0 transition-all duration-300 shadow-xl z-50">
-            <button
-              onClick={() => navigateTo('home')}
-              className={`block w-full text-left px-3 py-2 rounded-lg text-base font-semibold ${activePage === 'home' ? 'text-white bg-slate-900' : 'text-slate-300 hover:text-white hover:bg-slate-900/50'
-                }`}
+            <Link
+              to="/"
+              onClick={() => setMobileMenuOpen(false)}
+              className={`block w-full text-left px-3 py-2 rounded-lg text-base font-semibold ${isActive('/') ? 'text-white bg-slate-900' : 'text-slate-300 hover:text-white hover:bg-slate-900/50'}`}
             >
               Home
-            </button>
-            <button
-              onClick={() => navigateTo('businesses')}
-              className={`block w-full text-left px-3 py-2 rounded-lg text-base font-semibold ${activePage === 'businesses' ? 'text-white bg-slate-900' : 'text-slate-300 hover:text-white hover:bg-slate-900/50'
-                }`}
+            </Link>
+            <Link
+              to="/businesses"
+              onClick={() => setMobileMenuOpen(false)}
+              className={`block w-full text-left px-3 py-2 rounded-lg text-base font-semibold ${isActive('/businesses') ? 'text-white bg-slate-900' : 'text-slate-300 hover:text-white hover:bg-slate-900/50'}`}
             >
               Our Businesses
-            </button>
-            <button
-              onClick={() => navigateTo('shop')}
-              className={`block w-full text-left px-3 py-2 rounded-lg text-base font-semibold ${activePage === 'shop' ? 'text-white bg-slate-900' : 'text-slate-300 hover:text-white hover:bg-slate-900/50'
-                }`}
+            </Link>
+            <Link
+              to="/shop"
+              onClick={() => setMobileMenuOpen(false)}
+              className={`block w-full text-left px-3 py-2 rounded-lg text-base font-semibold ${isActive('/shop') ? 'text-white bg-slate-900' : 'text-slate-300 hover:text-white hover:bg-slate-900/50'}`}
             >
               Shop
-            </button>
-            <button
-              onClick={() => navigateTo('brands')}
-              className={`block w-full text-left px-3 py-2 rounded-lg text-base font-semibold ${activePage === 'brands' ? 'text-white bg-slate-900' : 'text-slate-300 hover:text-white hover:bg-slate-900/50'
-                }`}
+            </Link>
+            <Link
+              to="/brands"
+              onClick={() => setMobileMenuOpen(false)}
+              className={`block w-full text-left px-3 py-2 rounded-lg text-base font-semibold ${isActive('/brands') ? 'text-white bg-slate-900' : 'text-slate-300 hover:text-white hover:bg-slate-900/50'}`}
             >
               Brands
-            </button>
-            <button
-              onClick={() => navigateTo('about')}
-              className={`block w-full text-left px-3 py-2 rounded-lg text-base font-semibold ${activePage === 'about' ? 'text-white bg-slate-900' : 'text-slate-300 hover:text-white hover:bg-slate-900/50'
-                }`}
+            </Link>
+            <Link
+              to="/about"
+              onClick={() => setMobileMenuOpen(false)}
+              className={`block w-full text-left px-3 py-2 rounded-lg text-base font-semibold ${isActive('/about') ? 'text-white bg-slate-900' : 'text-slate-300 hover:text-white hover:bg-slate-900/50'}`}
             >
               About
-            </button>
-            <button
-              onClick={() => navigateTo('contact')}
-              className={`block w-full text-left px-3 py-2 rounded-lg text-base font-semibold ${activePage === 'contact' ? 'text-white bg-slate-900' : 'text-slate-300 hover:text-white hover:bg-slate-900/50'
-                }`}
+            </Link>
+            <Link
+              to="/contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className={`block w-full text-left px-3 py-2 rounded-lg text-base font-semibold ${isActive('/contact') ? 'text-white bg-slate-900' : 'text-slate-300 hover:text-white hover:bg-slate-900/50'}`}
             >
               Contact
-            </button>
+            </Link>
 
             <div className="pt-4 flex flex-col gap-3 px-3">
               <div className="flex gap-4">
@@ -232,12 +226,13 @@ export default function Navbar({ activePage, setActivePage }) {
                   <User className="w-4 h-4" /> Profile
                 </button>
               </div>
-              <button 
-                onClick={() => navigateTo('contact')}
-                className="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 rounded-lg text-sm transition-all duration-300 cursor-pointer"
+              <Link 
+                to="/contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 rounded-lg text-sm transition-all duration-300 text-center block"
               >
                 Partner With Us
-              </button>
+              </Link>
             </div>
           </div>
         )}

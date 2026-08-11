@@ -1,89 +1,95 @@
-import React from 'react';
-import { 
-  ArrowRight, 
-  ShieldCheck, 
-  Award, 
-  Handshake, 
-  Users, 
+import React from "react";
+import {
+  ArrowRight,
+  ShieldCheck,
+  Award,
+  Handshake,
+  Users,
   Building2,
-  Leaf
-} from 'lucide-react';
+  Leaf,
+} from "lucide-react";
 
-import greenbaeImg from '../assets/business_fmcg.png';
-import micaeImg from '../assets/product_g63.png';
-import industrialImg from '../assets/business_industrial.png';
+import greenbaeImg from "../../../assets/business_fmcg.png";
+import micaeImg from "../../../assets/product_g63.png";
+import industrialImg from "../../../assets/business_industrial.png";
 
 export default function Brands() {
   const brandsList = [
     {
-      id: 'greenbae',
-      name: 'greenbae™',
-      tagline: 'Natural. Pure. You.',
-      description: 'Wellness and personal care products made with natural ingredients for a healthier lifestyle.',
+      id: "greenbae",
+      name: "greenbae™",
+      tagline: "Natural. Pure. You.",
+      description:
+        "Wellness and personal care products made with natural ingredients for a healthier lifestyle.",
       image: greenbaeImg,
-      accentColor: 'text-emerald-600',
-      tagColor: 'text-emerald-700',
-      linkText: 'Explore Brand',
+      accentColor: "text-emerald-600",
+      tagColor: "text-emerald-700",
+      linkText: "Explore Brand",
       isGreenCard: true,
     },
     {
-      id: 'micae',
-      name: 'MICAE®',
-      tagline: 'COLLECT. SCALE. EXPERIENCE.',
-      description: 'Premium die-cast scale models and collectibles crafted for true enthusiasts and collectors.',
+      id: "micae",
+      name: "MICAE®",
+      tagline: "COLLECT. SCALE. EXPERIENCE.",
+      description:
+        "Premium die-cast scale models and collectibles crafted for true enthusiasts and collectors.",
       image: micaeImg,
-      accentColor: 'text-red-600',
-      tagColor: 'text-red-600',
-      linkText: 'Explore Brand',
+      accentColor: "text-red-600",
+      tagColor: "text-red-600",
+      linkText: "Explore Brand",
     },
     {
-      id: 'industrial',
-      name: 'RV INDUSTRIAL',
-      tagline: 'BUILT TO PERFORM',
-      description: 'High-quality industrial supplies, bearings, fasteners and engineering solutions for every industry.',
+      id: "industrial",
+      name: "RV INDUSTRIAL",
+      tagline: "BUILT TO PERFORM",
+      description:
+        "High-quality industrial supplies, bearings, fasteners and engineering solutions for every industry.",
       image: industrialImg,
-      accentColor: 'text-blue-600',
-      tagColor: 'text-blue-600',
-      linkText: 'Explore Brand',
+      accentColor: "text-blue-600",
+      tagColor: "text-blue-600",
+      linkText: "Explore Brand",
     },
     {
-      id: 'future',
+      id: "future",
       isFuture: true,
-      title: 'More to Come. Greater Together.',
-      description: 'We are building a portfolio of future-ready brands across diverse categories.',
-      accentColor: 'text-amber-500',
-      tagColor: 'text-[#C59B27]',
-      linkText: 'Explore Future Brands',
+      title: "More to Come. Greater Together.",
+      description:
+        "We are building a portfolio of future-ready brands across diverse categories.",
+      accentColor: "text-amber-500",
+      tagColor: "text-[#C59B27]",
+      linkText: "Explore Future Brands",
     },
   ];
 
   const highlights = [
     {
       icon: ShieldCheck,
-      title: 'Trusted Quality',
-      subtitle: 'Products you can rely on',
+      title: "Trusted Quality",
+      subtitle: "Products you can rely on",
     },
     {
       icon: Award,
-      title: 'Diverse Categories',
-      subtitle: 'Solutions for every need',
+      title: "Diverse Categories",
+      subtitle: "Solutions for every need",
     },
     {
       icon: Handshake,
-      title: 'Built for Growth',
-      subtitle: 'Brands with a vision',
+      title: "Built for Growth",
+      subtitle: "Brands with a vision",
     },
     {
       icon: Users,
-      title: 'Customer First',
-      subtitle: 'Your satisfaction, our priority',
+      title: "Customer First",
+      subtitle: "Your satisfaction, our priority",
     },
   ];
 
   return (
-    <section id="brands" className="w-full bg-[#F8FAFC] py-16 sm:py-20 px-4 sm:px-6 lg:px-8 font-sans border-t border-b border-slate-200/60">
+    <section
+      id="brands"
+      className="w-full bg-[#F8FAFC] py-16 sm:py-20 px-4 sm:px-6 lg:px-8 font-sans border-t border-b border-slate-200/60"
+    >
       <div className="max-w-7xl mx-auto">
-        
         {/* 1. TOP BADGE */}
         <div className="text-center mb-2">
           <span className="text-blue-600 font-bold text-xs tracking-[0.25em] uppercase">
@@ -101,7 +107,8 @@ export default function Brands() {
 
         {/* 3. SUBHEADING */}
         <p className="text-center text-slate-600 text-sm sm:text-base max-w-2xl mx-auto mb-12 font-normal leading-relaxed">
-          Strong brands. Trusted quality. Built with purpose to deliver value across every category we serve.
+          Strong brands. Trusted quality. Built with purpose to deliver value
+          across every category we serve.
         </p>
 
         {/* 4. 4-CARDS GRID */}
@@ -116,14 +123,22 @@ export default function Brands() {
                   {/* Future Brands Banner Image */}
                   <div className="h-48 sm:h-52 w-full bg-gradient-to-br from-[#060E26] via-[#0A183C] to-[#040817] flex flex-col items-center justify-center p-6 relative overflow-hidden border-b border-slate-800">
                     {/* Background subtle radial texture */}
-                    <div className="absolute inset-0 opacity-20" style={{
-                      backgroundImage: `radial-gradient(#3b82f6 1px, transparent 1px)`,
-                      backgroundSize: '16px 16px'
-                    }}></div>
+                    <div
+                      className="absolute inset-0 opacity-20"
+                      style={{
+                        backgroundImage: `radial-gradient(#3b82f6 1px, transparent 1px)`,
+                        backgroundSize: "16px 16px",
+                      }}
+                    ></div>
 
                     {/* Gold 3D Cube Monogram */}
                     <div className="w-14 h-14 mb-3 text-[#D4AF37] relative z-10 flex items-center justify-center">
-                      <svg viewBox="0 0 24 24" className="w-full h-full stroke-[1.5]" fill="none" stroke="currentColor">
+                      <svg
+                        viewBox="0 0 24 24"
+                        className="w-full h-full stroke-[1.5]"
+                        fill="none"
+                        stroke="currentColor"
+                      >
                         <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
                         <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
                         <line x1="12" y1="22.08" x2="12" y2="12"></line>
@@ -159,15 +174,15 @@ export default function Brands() {
               <div
                 key={brand.id}
                 className={`rounded-2xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group cursor-pointer ${
-                  brand.isGreenCard ? 'bg-[#F4F3ED]' : 'bg-white'
+                  brand.isGreenCard ? "bg-[#F4F3ED]" : "bg-white"
                 }`}
               >
                 {/* Brand Image Header */}
                 <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-100">
-                  <img 
-                    src={brand.image} 
+                  <img
+                    src={brand.image}
                     alt={brand.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                   />
                   {brand.isGreenCard && (
                     <div className="absolute inset-x-0 bottom-0 h-6 bg-[#F4F3ED] clip-path-curve"></div>
@@ -178,7 +193,7 @@ export default function Brands() {
                 <div className="p-6 flex-1 flex flex-col justify-between">
                   <div>
                     {/* Brand Name / Monogram Header */}
-                    {brand.id === 'greenbae' ? (
+                    {brand.id === "greenbae" ? (
                       <div className="flex items-center gap-2 mb-1">
                         <Leaf className="w-5 h-5 text-emerald-700" />
                         <h3 className="text-emerald-800 font-extrabold text-2xl tracking-tight">
@@ -192,7 +207,9 @@ export default function Brands() {
                     )}
 
                     {/* Tagline */}
-                    <div className={`text-xs font-extrabold tracking-wider uppercase mb-3 ${brand.accentColor}`}>
+                    <div
+                      className={`text-xs font-extrabold tracking-wider uppercase mb-3 ${brand.accentColor}`}
+                    >
                       {brand.tagline}
                     </div>
 
@@ -203,7 +220,9 @@ export default function Brands() {
                   </div>
 
                   {/* Explore Link */}
-                  <div className={`flex items-center gap-2 font-semibold text-sm transition-colors mt-auto pt-2 ${brand.tagColor}`}>
+                  <div
+                    className={`flex items-center gap-2 font-semibold text-sm transition-colors mt-auto pt-2 ${brand.tagColor}`}
+                  >
                     <span>{brand.linkText}</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -219,9 +238,9 @@ export default function Brands() {
             {highlights.map((item, idx) => {
               const HighlightIcon = item.icon;
               return (
-                <div 
-                  key={idx} 
-                  className={`flex items-center gap-4 ${idx !== 0 ? 'pt-4 sm:pt-0 sm:pl-6' : ''}`}
+                <div
+                  key={idx}
+                  className={`flex items-center gap-4 ${idx !== 0 ? "pt-4 sm:pt-0 sm:pl-6" : ""}`}
                 >
                   <div className="p-3 rounded-2xl bg-blue-50/80 text-blue-600 border border-blue-100 flex-shrink-0">
                     <HighlightIcon className="w-6 h-6" />
@@ -242,12 +261,14 @@ export default function Brands() {
 
         {/* 6. BOTTOM BANNER */}
         <div className="w-full bg-[#050C1E] rounded-2xl border border-slate-800/90 p-6 sm:p-8 flex flex-col md:flex-row justify-between items-center gap-6 shadow-xl relative overflow-hidden">
-          
           {/* Subtle Grid Pattern Watermark */}
-          <div className="absolute inset-0 opacity-10 pointer-events-none" style={{
-            backgroundImage: `radial-gradient(#3b82f6 1px, transparent 1px)`,
-            backgroundSize: '24px 24px'
-          }}></div>
+          <div
+            className="absolute inset-0 opacity-10 pointer-events-none"
+            style={{
+              backgroundImage: `radial-gradient(#3b82f6 1px, transparent 1px)`,
+              backgroundSize: "24px 24px",
+            }}
+          ></div>
 
           {/* Left Content */}
           <div className="flex items-center gap-4 text-center sm:text-left z-10">
@@ -259,7 +280,8 @@ export default function Brands() {
                 Stronger Brands. Stronger Tomorrow.
               </h3>
               <p className="text-slate-400 text-xs sm:text-sm font-normal">
-                Discover the brands shaping our journey and the future we are building together.
+                Discover the brands shaping our journey and the future we are
+                building together.
               </p>
             </div>
           </div>
@@ -271,9 +293,7 @@ export default function Brands() {
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
-
         </div>
-
       </div>
     </section>
   );
