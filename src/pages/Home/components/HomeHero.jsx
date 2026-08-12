@@ -1,6 +1,6 @@
 import React from "react";
 import { Award, ArrowRight, Users, Truck, Lock } from "lucide-react";
-import showcaseImg from "../../../assets/showcase.png";
+import showcaseImg from "../../../assets/back.png";
 import { useNavigate } from "react-router-dom";
 
 export default function HomeHero() {
