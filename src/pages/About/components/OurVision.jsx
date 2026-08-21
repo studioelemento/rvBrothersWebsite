@@ -822,4 +822,4 @@ export default function OurVision() {
       `}</style>
     </section>
   );
-}
+} 
