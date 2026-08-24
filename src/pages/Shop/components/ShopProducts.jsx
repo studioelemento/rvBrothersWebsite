@@ -13,7 +13,6 @@ import {
   ArrowRight 
 } from 'lucide-react';
 
-import bearingImg from "../../../assets/business_industrial.png";
 import mustangGtImg from "../../../assets/mustang_gt.png";
 import haircareComboImg from "../../../assets/haircare_combo.png";
 import ballBearingImg from "../../../assets/ball_bearing.png";
@@ -182,7 +181,7 @@ export default function ShopProducts() {
   };
 
   // Helper for category label colors (matching the unified theme color)
-  const getCategoryColor = (category) => {
+  const getCategoryColor = (_category) => {
     return 'text-blue-600';
   };
 
