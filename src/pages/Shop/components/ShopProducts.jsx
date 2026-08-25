@@ -25,8 +25,11 @@ import helicalGearboxImg from "../../../assets/helical_gearbox.png";
 import boltsNutsImg from "../../../assets/bolts_nuts.png";
 import engineOilImg from "../../../assets/engine_oil.png";
 import packagingTapeImg from "../../../assets/packaging_tape.png";
+import britishCoinImg from "../../../assets/british_coin.jpg";
+import britishCoinObverseImg from "../../../assets/british_coin_obverse.jpg";
+import britishCoinReverseImg from "../../../assets/british_coin_reverse.jpg";
+import britishCoinBoxImg from "../../../assets/british_coin_box.jpg";
 
-// Product Catalog matching the reference image details and using verified clean white background Unsplash images
 const INITIAL_PRODUCTS = [
   {
     id: 1,
@@ -151,7 +154,7 @@ const CATEGORIES = [
   'Business Essentials'
 ];
 
-export default function ShopProducts() {
+export default function ShopProducts({ onSelectProduct }) {
   const [products] = useState(INITIAL_PRODUCTS);
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [favorites, setFavorites] = useState({});
@@ -274,7 +277,10 @@ export default function ShopProducts() {
               className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/80 bg-white hover:border-blue-500/30 hover:shadow-lg transition-all duration-300 h-full p-4"
             >
               {/* Card Image Container */}
-              <div className="relative aspect-square w-full overflow-hidden rounded-xl bg-slate-50/30 flex items-center justify-center mb-4">
+              <div 
+                onClick={() => onSelectProduct && onSelectProduct(prod)}
+                className="relative aspect-square w-full overflow-hidden rounded-xl bg-slate-50/30 flex items-center justify-center mb-4 cursor-pointer"
+              >
                 <img
                   src={prod.image}
                   alt={prod.title}
@@ -295,7 +301,10 @@ export default function ShopProducts() {
 
                 {/* Wishlist Button */}
                 <button
-                  onClick={() => toggleFavorite(prod.id)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    toggleFavorite(prod.id);
+                  }}
                   className="absolute top-3 right-3 p-2 rounded-full bg-white/90 backdrop-blur-xs border border-slate-200 hover:border-red-500/50 hover:bg-red-50 text-slate-400 hover:text-red-500 transition-all duration-300 cursor-pointer z-10"
                 >
                   <Heart className={`w-4 h-4 transition-transform active:scale-95 ${favorites[prod.id] ? 'fill-red-500 text-red-500' : ''}`} />
@@ -304,7 +313,10 @@ export default function ShopProducts() {
 
               {/* Card Meta & Titles */}
               <div className="flex-1 flex flex-col justify-between space-y-2">
-                <div className="space-y-1">
+                <div 
+                  onClick={() => onSelectProduct && onSelectProduct(prod)}
+                  className="space-y-1 cursor-pointer"
+                >
                   <span className={`text-[10px] font-bold tracking-wider uppercase ${getCategoryColor(prod.category)}`}>
                     {prod.category}
                   </span>
@@ -340,7 +352,10 @@ export default function ShopProducts() {
               className="group relative flex flex-col sm:flex-row items-center gap-6 overflow-hidden rounded-2xl border border-slate-200 bg-white hover:border-blue-500/30 hover:shadow-lg transition-all duration-300 p-4"
             >
               {/* Image box */}
-              <div className="relative aspect-square w-full sm:w-40 flex-shrink-0 overflow-hidden rounded-xl bg-slate-50/30 flex items-center justify-center">
+              <div 
+                onClick={() => onSelectProduct && onSelectProduct(prod)}
+                className="relative aspect-square w-full sm:w-40 flex-shrink-0 overflow-hidden rounded-xl bg-slate-50/30 flex items-center justify-center cursor-pointer"
+              >
                 <img
                   src={prod.image}
                   alt={prod.title}
@@ -362,7 +377,10 @@ export default function ShopProducts() {
 
               {/* Information Row */}
               <div className="flex-1 flex flex-col sm:flex-row sm:items-center justify-between w-full gap-4">
-                <div className="space-y-2">
+                <div 
+                  onClick={() => onSelectProduct && onSelectProduct(prod)}
+                  className="space-y-2 cursor-pointer flex-1"
+                >
                   <span className={`text-[10px] font-bold tracking-wider uppercase ${getCategoryColor(prod.category)}`}>
                     {prod.category}
                   </span>
@@ -382,7 +400,10 @@ export default function ShopProducts() {
                   </div>
                   <div className="flex items-center gap-2">
                     <button
-                      onClick={() => toggleFavorite(prod.id)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleFavorite(prod.id);
+                      }}
                       className="p-3 rounded-xl bg-white border border-slate-200 hover:border-red-500/50 hover:bg-red-50 text-slate-400 hover:text-red-500 transition-all duration-300 cursor-pointer"
                     >
                       <Heart className={`w-4 h-4 transition-transform active:scale-95 ${favorites[prod.id] ? 'fill-red-500 text-red-500' : ''}`} />
