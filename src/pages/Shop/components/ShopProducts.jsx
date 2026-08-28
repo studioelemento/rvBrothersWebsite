@@ -30,7 +30,11 @@ import britishCoinObverseImg from "../../../assets/british_coin_obverse.jpg";
 import britishCoinReverseImg from "../../../assets/british_coin_reverse.jpg";
 import britishCoinBoxImg from "../../../assets/british_coin_box.jpg";
 
+<<<<<<< HEAD
 export const INITIAL_PRODUCTS = [
+=======
+const INITIAL_PRODUCTS = [
+>>>>>>> 8d5a7f143c8eb222d696dd51d8c59f0da9988b3c
   {
     id: 1,
     category: 'Toys & Collectibles',

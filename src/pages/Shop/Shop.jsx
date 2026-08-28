@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
+=======
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+>>>>>>> 8d5a7f143c8eb222d696dd51d8c59f0da9988b3c
 import { ChevronRight } from 'lucide-react';
 import ShopProducts, { INITIAL_PRODUCTS } from './components/ShopProducts';
 import ShopMarketplace from './components/ShopMarketplace';
@@ -7,6 +12,7 @@ import ShopBusiness from './components/ShopBusiness';
 import SingleProductHero from './components/Products/SingleProductHero';
 
 export default function Shop() {
+<<<<<<< HEAD
   const [searchParams, setSearchParams] = useSearchParams();
   const [selectedProduct, setSelectedProduct] = useState(null);
 
@@ -56,6 +62,13 @@ export default function Shop() {
 
   const handleBackToCatalog = () => {
     setSearchParams({});
+=======
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
+  const handleBackToCatalog = () => {
+    setSelectedProduct(null);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+>>>>>>> 8d5a7f143c8eb222d696dd51d8c59f0da9988b3c
   };
 
   return (
@@ -67,7 +80,11 @@ export default function Shop() {
           <SingleProductHero 
             product={selectedProduct} 
             onBack={handleBackToCatalog} 
+<<<<<<< HEAD
             onSelectProduct={handleSelectProduct}
+=======
+            onSelectProduct={setSelectedProduct}
+>>>>>>> 8d5a7f143c8eb222d696dd51d8c59f0da9988b3c
             onAddToCart={(prod) => console.log('Add to cart:', prod)}
           />
         ) : (
@@ -82,7 +99,11 @@ export default function Shop() {
             </nav>
 
             {/* Products Grid Component */}
+<<<<<<< HEAD
             <ShopProducts onSelectProduct={handleSelectProduct} />
+=======
+            <ShopProducts onSelectProduct={setSelectedProduct} />
+>>>>>>> 8d5a7f143c8eb222d696dd51d8c59f0da9988b3c
 
             {/* Marketplace Presence Component */}
             <ShopMarketplace />

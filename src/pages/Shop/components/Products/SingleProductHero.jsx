@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+<<<<<<< HEAD
 import { Link } from 'react-router-dom';
+=======
+>>>>>>> 8d5a7f143c8eb222d696dd51d8c59f0da9988b3c
 import { 
   ChevronRight, 
   ChevronUp, 
@@ -114,7 +117,11 @@ export default function SingleProductHero({ product, onBack, onAddToCart, onSele
           <ArrowLeft className="w-3.5 h-3.5" /> Back to Shop
         </button>
         <ChevronRight className="w-3 h-3 text-slate-300" />
+<<<<<<< HEAD
         <Link to="/" className="hover:text-slate-655 cursor-pointer">Home</Link>
+=======
+        <span className="hover:text-slate-655 cursor-pointer" onClick={onBack}>Home</span>
+>>>>>>> 8d5a7f143c8eb222d696dd51d8c59f0da9988b3c
         <ChevronRight className="w-3 h-3 text-slate-300" />
         <span className="hover:text-slate-655 cursor-pointer">{product.category}</span>
         <ChevronRight className="w-3 h-3 text-slate-300" />
