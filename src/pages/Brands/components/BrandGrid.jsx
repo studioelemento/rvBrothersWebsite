@@ -60,36 +60,55 @@ const discussions = [
 
 export default function BrandGrid() {
   return (
-    <section className="w-full bg-white px-6 py-16 md:px-10 lg:px-14 lg:py-20">
-      <div className="mx-auto max-w-[1380px]">
+    <section className="w-full bg-white px-4 py-10 sm:px-5 md:px-8 md:py-12 lg:px-10 lg:py-14">
+      <div className="mx-auto max-w-[1280px]">
 
         {/* SECTION HEADER */}
-        <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div className="mb-8 flex flex-col gap-5 md:mb-9 md:flex-row md:items-end md:justify-between">
 
           <div>
-            <div className="mb-5">
-              <span className="text-sm font-bold tracking-[0.16em] text-blue-700">
+            <div className="mb-3">
+              <span className="text-xs font-bold tracking-[0.16em] text-blue-700">
                 ALL DISCUSSIONS
               </span>
             </div>
 
-            <h2 className="text-4xl font-bold tracking-[-0.03em] text-[#101b43] md:text-5xl">
+            <h2 className="text-3xl font-bold tracking-[-0.03em] text-[#101b43] md:text-4xl lg:text-[44px]">
               Latest Discussions
             </h2>
 
-            <p className="mt-3 text-base text-[#536487] md:text-lg">
+            <p className="mt-2 text-sm text-[#536487] md:text-base">
               Insights, ideas, and conversations shaping the future of commerce.
             </p>
           </div>
 
-          {/* VIEW ALL BUTTON */}
+          {/* VIEW ALL */}
           <button
             type="button"
-            className="group flex w-fit items-center gap-7 rounded-lg border border-blue-600 bg-white px-5 py-3.5 text-sm font-semibold text-blue-700 transition-all duration-300 hover:bg-blue-600 hover:text-white"
+            className="
+              group
+              flex
+              w-fit
+              items-center
+              gap-5
+              rounded-lg
+              border
+              border-blue-600
+              bg-white
+              px-5
+              py-3
+              text-sm
+              font-semibold
+              text-blue-700
+              transition-all
+              duration-300
+              hover:bg-blue-600
+              hover:text-white
+            "
           >
             <span>View All Discussions</span>
 
-            <span className="text-xl transition-transform duration-300 group-hover:translate-x-1">
+            <span className="text-lg transition-transform duration-300 group-hover:translate-x-1">
               →
             </span>
           </button>
@@ -97,57 +116,129 @@ export default function BrandGrid() {
         </div>
 
         {/* DISCUSSION GRID */}
-        <div className="grid grid-cols-1 gap-7 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
 
           {discussions.map((discussion, index) => (
             <article
               key={index}
-              className="group overflow-hidden rounded-xl border border-[#edf0f7] bg-white shadow-[0_8px_30px_rgba(16,29,70,0.07)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(16,29,70,0.12)]"
+              className="
+                group
+                overflow-hidden
+                rounded-xl
+                border
+                border-[#edf0f7]
+                bg-white
+                shadow-[0_6px_24px_rgba(16,29,70,0.06)]
+                transition-all
+                duration-300
+                hover:-translate-y-1
+                hover:shadow-[0_12px_32px_rgba(16,29,70,0.10)]
+              "
             >
 
               {/* IMAGE */}
-              <div className="h-[230px] overflow-hidden bg-[#f4f6fb]">
+              <div
+                className="
+                  h-[180px]
+                  overflow-hidden
+                  bg-[#f4f6fb]
+                  sm:h-[190px]
+                  md:h-[175px]
+                  lg:h-[185px]
+                "
+              >
                 <img
                   src={discussion.image}
                   alt={discussion.title}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                  className="
+                    h-full
+                    w-full
+                    object-cover
+                    transition-transform
+                    duration-500
+                    group-hover:scale-[1.03]
+                  "
                 />
               </div>
 
               {/* CONTENT */}
-              <div className="p-6 md:p-7">
+              <div className="p-5 md:p-5 lg:p-6">
 
                 {/* CATEGORY + DATE */}
-                <div className="mb-5 flex items-center justify-between gap-4">
+                <div className="mb-4 flex items-center justify-between gap-3">
 
-                  <span className="rounded-full bg-[#eef0ff] px-3 py-1 text-[11px] font-bold tracking-[0.08em] text-blue-700">
+                  <span
+                    className="
+                      rounded-full
+                      bg-[#eef0ff]
+                      px-3
+                      py-1
+                      text-[10px]
+                      font-bold
+                      tracking-[0.08em]
+                      text-blue-700
+                    "
+                  >
                     {discussion.category}
                   </span>
 
-                  <span className="text-xs font-medium text-[#536487]">
+                  <span className="whitespace-nowrap text-[11px] font-medium text-[#536487]">
                     {discussion.date}
                   </span>
 
                 </div>
 
                 {/* TITLE */}
-                <h3 className="min-h-[58px] text-[20px] font-bold leading-[1.2] tracking-[-0.02em] text-[#101b43]">
+                <h3
+                  className="
+                    text-[18px]
+                    font-bold
+                    leading-[1.25]
+                    tracking-[-0.02em]
+                    text-[#101b43]
+                    md:text-[18px]
+                    lg:text-[19px]
+                  "
+                >
                   {discussion.title}
                 </h3>
 
                 {/* DESCRIPTION */}
-                <p className="mt-4 min-h-[72px] text-[15px] leading-6 text-[#536487]">
+                <p
+                  className="
+                    mt-3
+                    text-[14px]
+                    leading-5
+                    text-[#536487]
+                  "
+                >
                   {discussion.description}
                 </p>
 
                 {/* READ MORE */}
                 <button
                   type="button"
-                  className="group/read mt-5 flex items-center gap-4 text-sm font-semibold text-blue-600"
+                  className="
+                    group/read
+                    mt-4
+                    flex
+                    items-center
+                    gap-3
+                    text-sm
+                    font-semibold
+                    text-blue-600
+                  "
                 >
                   <span>Read More</span>
 
-                  <span className="text-xl transition-transform duration-300 group-hover/read:translate-x-1">
+                  <span
+                    className="
+                      text-lg
+                      transition-transform
+                      duration-300
+                      group-hover/read:translate-x-1
+                    "
+                  >
                     →
                   </span>
                 </button>

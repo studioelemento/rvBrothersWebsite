@@ -3,45 +3,52 @@ import React from "react";
 const categories = [
   {
     title: "Collectibles",
-    description: "Insights on rare finds, market shifts, and collecting trends.",
+    description:
+      "Insights on rare finds, market shifts, and collecting trends.",
     icon: "trophy",
   },
   {
     title: "Wellness",
-    description: "Conversations around health, wellness, and mindful living.",
+    description:
+      "Conversations around health, wellness, and mindful living.",
     icon: "lotus",
   },
   {
     title: "Distribution",
-    description: "Strategies, networks, and insights for smarter distribution.",
+    description:
+      "Strategies, networks, and insights for smarter distribution.",
     icon: "truck",
   },
   {
     title: "Market Trends",
-    description: "Data, analysis, and outlooks shaping tomorrow's markets.",
+    description:
+      "Data, analysis, and outlooks shaping tomorrow's markets.",
     icon: "chart",
   },
   {
     title: "Product Insights",
-    description: "Deep dives into products, innovation, and categories.",
+    description:
+      "Deep dives into products, innovation, and categories.",
     icon: "search",
   },
   {
     title: "Business Growth",
-    description: "Ideas, frameworks, and real conversations for scaling up.",
+    description:
+      "Ideas, frameworks, and real conversations for scaling up.",
     icon: "growth",
   },
 ];
 
 function CategoryIcon({ type }) {
+  const common = {
+    viewBox: "0 0 64 64",
+    fill: "none",
+    className: "h-7 w-7 sm:h-8 sm:w-8 md:h-10 md:w-10",
+  };
+
   if (type === "trophy") {
     return (
-      <svg
-        viewBox="0 0 64 64"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-12 w-12"
-      >
+      <svg {...common}>
         <path
           d="M22 12H42V25C42 34 38 40 32 42C26 40 22 34 22 25V12Z"
           stroke="currentColor"
@@ -83,12 +90,7 @@ function CategoryIcon({ type }) {
 
   if (type === "lotus") {
     return (
-      <svg
-        viewBox="0 0 64 64"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-12 w-12"
-      >
+      <svg {...common}>
         <path
           d="M32 49C22 48 15 41 14 32C22 31 28 37 32 44"
           stroke="currentColor"
@@ -113,12 +115,7 @@ function CategoryIcon({ type }) {
 
   if (type === "truck") {
     return (
-      <svg
-        viewBox="0 0 64 64"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-12 w-12"
-      >
+      <svg {...common}>
         <path
           d="M8 19H40V43H8V19Z"
           stroke="currentColor"
@@ -145,23 +142,13 @@ function CategoryIcon({ type }) {
           stroke="currentColor"
           strokeWidth="2.5"
         />
-        <path
-          d="M49 27V34H56"
-          stroke="currentColor"
-          strokeWidth="2.5"
-        />
       </svg>
     );
   }
 
   if (type === "chart") {
     return (
-      <svg
-        viewBox="0 0 64 64"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-12 w-12"
-      >
+      <svg {...common}>
         <path
           d="M10 51H54"
           stroke="currentColor"
@@ -206,12 +193,7 @@ function CategoryIcon({ type }) {
 
   if (type === "search") {
     return (
-      <svg
-        viewBox="0 0 64 64"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-12 w-12"
-      >
+      <svg {...common}>
         <circle
           cx="28"
           cy="28"
@@ -230,12 +212,7 @@ function CategoryIcon({ type }) {
   }
 
   return (
-    <svg
-      viewBox="0 0 64 64"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="h-12 w-12"
-    >
+    <svg {...common}>
       <path
         d="M10 48L24 34L34 39L52 19"
         stroke="currentColor"
@@ -256,74 +233,139 @@ function CategoryIcon({ type }) {
 
 export default function ExploreCategories() {
   return (
-    <section className="w-full bg-white px-6 py-20 md:px-10 lg:px-16">
-      <div className="mx-auto max-w-[1380px]">
+    <section className="w-full bg-white px-4 py-10 sm:px-5 md:px-8 md:py-14 lg:px-10 lg:py-16">
+      <div className="mx-auto max-w-[1280px]">
 
-        {/* TOP HEADER */}
-        <div className="mb-16 grid grid-cols-1 gap-8 md:grid-cols-2">
+        {/* HEADER */}
+        <div className="mb-7 md:mb-10 lg:mb-12">
 
-          {/* LEFT */}
-          <div>
-            <div className="mb-7">
-              <span className="text-sm font-bold tracking-[0.18em] text-blue-700">
-                EXPLORE TOPICS
-              </span>
-
-              <div className="mt-7 h-[2px] w-14 bg-blue-600"></div>
-            </div>
-
-            <h2 className="max-w-[600px] text-4xl font-bold leading-[1.08] tracking-[-0.04em] text-[#101b43] md:text-5xl lg:text-[54px]">
-              Browse Discussions
-              <br />
-              by Topic
-            </h2>
+          <div className="mb-3">
+            <span className="text-[11px] font-bold tracking-[0.16em] text-blue-700 sm:text-xs">
+              EXPLORE TOPICS
+            </span>
           </div>
 
-          {/* RIGHT */}
-          <div className="flex items-center md:justify-center">
-            <p className="max-w-[500px] text-lg font-medium leading-7 text-[#536487]">
-              Explore curated conversations across key areas driving commerce,
-              growth, and value.
-            </p>
-          </div>
+          <h2 className="text-[30px] font-bold leading-[1.1] tracking-[-0.04em] text-[#101b43] sm:text-3xl md:text-4xl lg:text-[44px]">
+            Browse Discussions
+            <br />
+            by Topic
+          </h2>
+
+          <div className="mt-3 h-[2px] w-10 bg-blue-600" />
+
+          <p className="mt-3 max-w-[600px] text-sm leading-5 text-[#536487] sm:text-base md:text-[17px] md:leading-6">
+            Explore curated conversations across key areas driving commerce,
+            growth, and value.
+          </p>
+
         </div>
 
-        {/* CATEGORY CARDS */}
-        <div className="grid grid-cols-1 gap-7 md:grid-cols-2 xl:grid-cols-3">
+        {/* CATEGORY GRID */}
+        <div className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2 xl:grid-cols-3">
 
           {categories.map((category) => (
             <article
               key={category.title}
-              className="group relative min-h-[270px] overflow-hidden rounded-2xl border border-[#f0f2f8] bg-white p-8 shadow-[0_8px_30px_rgba(16,29,70,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(16,29,70,0.10)]"
+              className="
+                group
+                rounded-xl
+                border
+                border-[#edf0f7]
+                bg-white
+                p-5
+                shadow-[0_5px_20px_rgba(16,29,70,0.05)]
+                transition-all
+                duration-300
+                hover:-translate-y-1
+                hover:shadow-[0_10px_28px_rgba(16,29,70,0.09)]
+
+                sm:p-6
+
+                md:min-h-[225px]
+                md:p-7
+
+                lg:min-h-[230px]
+              "
             >
 
               {/* ICON */}
-              <div className="flex h-[94px] w-[94px] items-center justify-center rounded-full bg-[#eef0ff] text-blue-600 transition-transform duration-300 group-hover:scale-105">
+              <div
+                className="
+                  flex
+                  h-16
+                  w-16
+                  items-center
+                  justify-center
+                  rounded-full
+                  bg-[#eef0ff]
+                  text-blue-600
+
+                  sm:h-[70px]
+                  sm:w-[70px]
+
+                  md:h-[82px]
+                  md:w-[82px]
+                "
+              >
                 <CategoryIcon type={category.icon} />
               </div>
 
-              {/* CONTENT */}
-              <div className="absolute left-[160px] right-8 top-[52px]">
-                <h3 className="text-[24px] font-bold tracking-[-0.03em] text-[#101b43]">
-                  {category.title}
-                </h3>
+              {/* TITLE */}
+              <h3
+                className="
+                  mt-4
+                  text-[20px]
+                  font-bold
+                  leading-tight
+                  tracking-[-0.025em]
+                  text-[#101b43]
 
-                <p className="mt-3 max-w-[300px] text-[16px] leading-6 text-[#536487]">
-                  {category.description}
-                </p>
-              </div>
+                  sm:mt-5
+                  sm:text-[21px]
+
+                  md:text-[22px]
+                "
+              >
+                {category.title}
+              </h3>
+
+              {/* LINE */}
+              <div className="mt-2 h-[2px] w-10 bg-blue-600 md:mt-3 md:w-12" />
+
+              {/* DESCRIPTION */}
+              <p
+                className="
+                  mt-3
+                  max-w-[400px]
+                  text-[14px]
+                  leading-5
+                  text-[#536487]
+
+                  sm:text-[15px]
+                  sm:leading-6
+                "
+              >
+                {category.description}
+              </p>
 
               {/* ARROW */}
-              <div className="absolute bottom-14 left-[160px] text-3xl font-light text-blue-600 transition-transform duration-300 group-hover:translate-x-2">
-                →
-              </div>
+              <div
+                className="
+                  mt-3
+                  text-xl
+                  font-light
+                  leading-none
+                  text-blue-600
+                  transition-transform
+                  duration-300
+                  group-hover:translate-x-1
 
-              {/* FADED BACKGROUND ICON */}
-              <div className="pointer-events-none absolute -bottom-12 right-[-10px] opacity-[0.055]">
-                <CategoryIcon type={category.icon} />
-                <div className="scale-[3]">
-                  <CategoryIcon type={category.icon} />
-                </div>
+                  sm:mt-4
+                  md:mt-5
+                  md:text-2xl
+                "
+              >
+                →
               </div>
 
             </article>

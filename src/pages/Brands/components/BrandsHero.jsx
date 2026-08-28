@@ -2,11 +2,17 @@ import React from "react";
 import brandsDiscussionImage from "../../../assets/brands-discussion.png";
 
 export default function BrandsHero() {
+  const openDiscussion = () => {
+    window.location.href = "/brands/collectibles";
+  };
+
   return (
     <section className="brands-hero-section">
       <div className="brands-hero-container">
 
-        {/* Section Heading */}
+        {/* =========================
+            SECTION HEADING
+        ========================= */}
         <div className="brands-section-heading">
           <div className="heading-line"></div>
 
@@ -16,7 +22,9 @@ export default function BrandsHero() {
           </div>
         </div>
 
-        {/* Featured Discussion Card */}
+        {/* =========================
+            FEATURED DISCUSSION CARD
+        ========================= */}
         <div className="featured-discussion">
 
           {/* Background Image */}
@@ -76,6 +84,7 @@ export default function BrandsHero() {
             <button
               type="button"
               className="discussion-button"
+              onClick={openDiscussion}
             >
               <span>Read Full Discussion</span>
               <span className="button-arrow">→</span>
@@ -85,12 +94,19 @@ export default function BrandsHero() {
         </div>
       </div>
 
-      {/* Component Styles */}
+      {/* =========================
+          COMPONENT STYLES
+      ========================= */}
       <style>{`
+
+        /* =========================================================
+           MAIN SECTION
+        ========================================================= */
+
         .brands-hero-section {
           width: 100%;
           background: #ffffff;
-          padding: 70px 4%;
+          padding: 58px 4%;
           box-sizing: border-box;
         }
 
@@ -100,20 +116,21 @@ export default function BrandsHero() {
           margin: 0 auto;
         }
 
-        /* =========================
+
+        /* =========================================================
            SECTION HEADING
-        ========================= */
+        ========================================================= */
 
         .brands-section-heading {
           display: flex;
           align-items: flex-start;
-          gap: 18px;
-          margin-bottom: 42px;
+          gap: 16px;
+          margin-bottom: 30px;
         }
 
         .heading-line {
-          width: 6px;
-          height: 32px;
+          width: 5px;
+          height: 29px;
           background: #1747ff;
           border-radius: 10px;
           flex-shrink: 0;
@@ -123,32 +140,39 @@ export default function BrandsHero() {
         .brands-section-heading h2 {
           margin: 0;
           color: #101b42;
-          font-size: 25px;
+          font-size: 23px;
           font-weight: 800;
-          letter-spacing: 1.5px;
+          letter-spacing: 1.4px;
           line-height: 1.2;
         }
 
         .brands-section-heading p {
-          margin: 12px 0 0;
+          margin: 8px 0 0;
           color: #526387;
-          font-size: 20px;
-          line-height: 1.5;
+          font-size: 18px;
+          line-height: 1.45;
         }
 
-        /* =========================
+
+        /* =========================================================
            FEATURED CARD
-        ========================= */
+        ========================================================= */
 
         .featured-discussion {
           position: relative;
           width: 100%;
-          min-height: 755px;
+          min-height: 580px;
           border-radius: 16px;
           overflow: hidden;
           background: #020b26;
-          box-shadow: 0 18px 45px rgba(5, 15, 45, 0.12);
+          box-shadow:
+            0 16px 40px rgba(5, 15, 45, 0.12);
         }
+
+
+        /* =========================================================
+           IMAGE
+        ========================================================= */
 
         .discussion-image {
           position: absolute;
@@ -160,95 +184,120 @@ export default function BrandsHero() {
           z-index: 1;
         }
 
-        /*
-          Dark gradient on the left makes the text readable
-          while keeping the image visible on the right.
-        */
+
+        /* =========================================================
+           DESKTOP OVERLAY
+        ========================================================= */
+
         .discussion-overlay {
           position: absolute;
           inset: 0;
           z-index: 2;
+
           background:
             linear-gradient(
               90deg,
               rgba(1, 10, 35, 0.98) 0%,
-              rgba(2, 12, 39, 0.94) 34%,
-              rgba(2, 12, 39, 0.72) 52%,
-              rgba(2, 12, 39, 0.16) 78%,
+              rgba(2, 12, 39, 0.94) 32%,
+              rgba(2, 12, 39, 0.72) 50%,
+              rgba(2, 12, 39, 0.18) 76%,
               rgba(2, 12, 39, 0.02) 100%
             );
         }
 
-        /* =========================
+
+        /* =========================================================
            CONTENT
-        ========================= */
+        ========================================================= */
 
         .discussion-content {
           position: relative;
           z-index: 3;
           width: 53%;
-          min-height: 755px;
-          padding: 82px 0 75px 70px;
+          min-height: 580px;
+          padding: 58px 0 55px 62px;
           box-sizing: border-box;
+
           display: flex;
           flex-direction: column;
           align-items: flex-start;
         }
 
+
+        /* =========================================================
+           CATEGORY
+        ========================================================= */
+
         .discussion-category {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          padding: 11px 21px;
+
+          padding: 9px 18px;
           border-radius: 30px;
-          background: rgba(36, 70, 190, 0.9);
+          background: rgba(36, 70, 190, 0.92);
           color: #ffffff;
-          font-size: 15px;
+
+          font-size: 13px;
           font-weight: 700;
-          letter-spacing: 1px;
-          margin-bottom: 32px;
+          letter-spacing: 0.9px;
+
+          margin-bottom: 22px;
         }
+
+
+        /* =========================================================
+           TITLE
+        ========================================================= */
 
         .discussion-content h1 {
           margin: 0;
-          max-width: 670px;
+          max-width: 650px;
           color: #ffffff;
-          font-size: 46px;
-          line-height: 1.35;
+          font-size: 40px;
+          line-height: 1.22;
           font-weight: 700;
-          letter-spacing: -1.2px;
+          letter-spacing: -1px;
         }
+
+
+        /* =========================================================
+           DESCRIPTION
+        ========================================================= */
 
         .discussion-description {
-          max-width: 610px;
-          margin: 34px 0 42px;
+          max-width: 590px;
+          margin: 24px 0 30px;
           color: rgba(255, 255, 255, 0.86);
-          font-size: 20px;
-          line-height: 1.7;
+          font-size: 17px;
+          line-height: 1.55;
         }
 
-        /* =========================
+
+        /* =========================================================
            AUTHOR
-        ========================= */
+        ========================================================= */
 
         .discussion-author {
           display: flex;
           align-items: center;
-          gap: 18px;
-          margin-bottom: 44px;
+          gap: 14px;
+          margin-bottom: 27px;
         }
 
         .author-logo {
-          width: 68px;
-          height: 68px;
+          width: 56px;
+          height: 56px;
           border: 1px solid #3158ff;
           border-radius: 50%;
+
           display: flex;
           align-items: center;
           justify-content: center;
+
           color: #ffffff;
           font-family: Georgia, serif;
-          font-size: 25px;
+          font-size: 22px;
           background: rgba(0, 0, 0, 0.15);
           flex-shrink: 0;
         }
@@ -256,47 +305,48 @@ export default function BrandsHero() {
         .author-details {
           display: flex;
           flex-direction: column;
-          gap: 7px;
+          gap: 5px;
         }
 
         .author-details strong {
           color: #ffffff;
-          font-size: 18px;
+          font-size: 16px;
           font-weight: 600;
         }
 
         .author-details span {
           color: rgba(255, 255, 255, 0.72);
-          font-size: 16px;
+          font-size: 14px;
         }
 
         .author-details b {
-          margin: 0 8px;
+          margin: 0 7px;
           font-weight: 400;
         }
 
-        /* =========================
+
+        /* =========================================================
            BUTTON
-        ========================= */
+        ========================================================= */
 
         .discussion-button {
           border: none;
           outline: none;
           cursor: pointer;
 
-          min-width: 345px;
-          padding: 19px 27px;
+          min-width: 300px;
+          padding: 15px 22px;
 
           display: flex;
           align-items: center;
           justify-content: space-between;
-          gap: 25px;
+          gap: 20px;
 
-          border-radius: 8px;
+          border-radius: 7px;
           background: #163cff;
           color: #ffffff;
 
-          font-size: 19px;
+          font-size: 16px;
           font-weight: 600;
 
           transition:
@@ -307,155 +357,255 @@ export default function BrandsHero() {
 
         .discussion-button:hover {
           background: #244dff;
-          transform: translateY(-3px);
-          box-shadow: 0 12px 28px rgba(22, 60, 255, 0.35);
+          transform: translateY(-2px);
+
+          box-shadow:
+            0 10px 24px rgba(22, 60, 255, 0.32);
         }
 
         .button-arrow {
-          font-size: 30px;
+          font-size: 25px;
           font-weight: 300;
           line-height: 1;
-          transition: transform 0.25s ease;
+
+          transition:
+            transform 0.25s ease;
         }
 
         .discussion-button:hover .button-arrow {
-          transform: translateX(6px);
+          transform: translateX(5px);
         }
 
-        /* =========================
+
+        /* =========================================================
            TABLET
-        ========================= */
+        ========================================================= */
 
         @media (max-width: 1000px) {
 
           .brands-hero-section {
-            padding: 55px 4%;
+            padding: 48px 4%;
           }
 
           .featured-discussion {
-            min-height: 700px;
+            min-height: 550px;
           }
 
           .discussion-content {
             width: 65%;
-            min-height: 700px;
-            padding: 65px 0 60px 50px;
+            min-height: 550px;
+            padding: 52px 0 48px 45px;
           }
 
           .discussion-content h1 {
-            font-size: 40px;
+            font-size: 36px;
           }
 
           .discussion-description {
-            font-size: 18px;
+            font-size: 16px;
           }
         }
 
-        /* =========================
+
+        /* =========================================================
            MOBILE
-        ========================= */
+        ========================================================= */
 
         @media (max-width: 700px) {
 
+          /* SECTION */
+
           .brands-hero-section {
-            padding: 45px 18px;
+            padding: 27px 14px 34px;
           }
 
+
+          /* HEADING */
+
           .brands-section-heading {
-            margin-bottom: 28px;
-            gap: 12px;
+            margin-bottom: 18px;
+            gap: 9px;
           }
 
           .heading-line {
-            width: 5px;
-            height: 27px;
+            width: 4px;
+            height: 21px;
+            margin-top: 1px;
           }
 
           .brands-section-heading h2 {
-            font-size: 19px;
-            letter-spacing: 1px;
+            font-size: 15px;
+            letter-spacing: 0.8px;
           }
 
           .brands-section-heading p {
-            font-size: 15px;
-            margin-top: 8px;
+            font-size: 12px;
+            line-height: 1.35;
+            margin-top: 4px;
           }
+
+
+          /* FEATURED CARD */
 
           .featured-discussion {
-            min-height: 720px;
-            border-radius: 14px;
+            min-height: 455px;
+            border-radius: 12px;
           }
 
+
+          /* IMAGE */
+
           .discussion-image {
-            object-position: 62% center;
+            object-position: 65% center;
           }
+
+
+          /* MOBILE OVERLAY */
 
           .discussion-overlay {
             background:
               linear-gradient(
                 180deg,
-                rgba(2, 10, 35, 0.35) 0%,
-                rgba(2, 10, 35, 0.78) 35%,
-                rgba(2, 10, 35, 0.98) 65%,
+                rgba(2, 10, 35, 0.05) 0%,
+                rgba(2, 10, 35, 0.18) 18%,
+                rgba(2, 10, 35, 0.58) 42%,
+                rgba(2, 10, 35, 0.94) 67%,
                 rgba(2, 10, 35, 1) 100%
               );
           }
 
+
+          /* CONTENT */
+
           .discussion-content {
             width: 100%;
-            min-height: 720px;
-            padding: 40px 27px;
+            min-height: 455px;
+            padding: 22px 19px 19px;
+            box-sizing: border-box;
             justify-content: flex-end;
           }
 
+
+          /* CATEGORY */
+
           .discussion-category {
-            font-size: 12px;
-            padding: 9px 15px;
-            margin-bottom: 20px;
+            font-size: 9px;
+            padding: 6px 11px;
+            letter-spacing: 0.7px;
+            margin-bottom: 11px;
           }
+
+
+          /* TITLE */
 
           .discussion-content h1 {
-            font-size: 30px;
-            line-height: 1.25;
-            letter-spacing: -0.5px;
+            max-width: 100%;
+            font-size: 22px;
+            line-height: 1.18;
+            letter-spacing: -0.35px;
           }
+
+          .discussion-content h1 br {
+            display: none;
+          }
+
+
+          /* DESCRIPTION */
 
           .discussion-description {
-            font-size: 15px;
-            line-height: 1.55;
-            margin: 22px 0 27px;
+            max-width: 100%;
+            margin: 11px 0 14px;
+            font-size: 12px;
+            line-height: 1.4;
           }
 
+
+          /* AUTHOR */
+
           .discussion-author {
-            margin-bottom: 30px;
-            gap: 13px;
+            gap: 8px;
+            margin-bottom: 14px;
           }
 
           .author-logo {
-            width: 52px;
-            height: 52px;
-            font-size: 20px;
+            width: 34px;
+            height: 34px;
+            font-size: 14px;
+          }
+
+          .author-details {
+            gap: 2px;
           }
 
           .author-details strong {
-            font-size: 15px;
+            font-size: 11px;
           }
 
           .author-details span {
-            font-size: 13px;
+            font-size: 9px;
           }
+
+          .author-details b {
+            margin: 0 4px;
+          }
+
+
+          /* BUTTON */
 
           .discussion-button {
             width: 100%;
             min-width: 0;
-            padding: 16px 20px;
-            font-size: 16px;
+            padding: 10px 13px;
+            border-radius: 6px;
+            font-size: 11px;
+            gap: 8px;
           }
 
           .button-arrow {
-            font-size: 25px;
+            font-size: 19px;
           }
         }
+
+
+        /* =========================================================
+           SMALL PHONES
+        ========================================================= */
+
+        @media (max-width: 380px) {
+
+          .brands-hero-section {
+            padding-left: 10px;
+            padding-right: 10px;
+          }
+
+          .featured-discussion {
+            min-height: 430px;
+          }
+
+          .discussion-content {
+            min-height: 430px;
+            padding: 20px 16px 17px;
+          }
+
+          .discussion-content h1 {
+            font-size: 20px;
+          }
+
+          .discussion-description {
+            font-size: 11px;
+            line-height: 1.35;
+          }
+
+          .discussion-button {
+            font-size: 10px;
+            padding: 9px 12px;
+          }
+
+          .button-arrow {
+            font-size: 18px;
+          }
+        }
+
       `}</style>
     </section>
   );

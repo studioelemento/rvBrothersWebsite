@@ -195,110 +195,40 @@ const WhatWeDo = () => {
   ];
 
   return (
-    <section
-      style={{
-        position: "relative",
-        overflow: "hidden",
-        background: "#ffffff",
-        padding: "90px 46px 60px",
-        fontFamily:
-          "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-      }}
-    >
+    <section className="what-we-do-section">
       {/* =========================================
           INDIA MAP - DECORATIVE LEFT CORNER
-          ========================================= */}
+      ========================================= */}
       <img
         src={panIndiaMap}
         alt=""
-        style={{
-          position: "absolute",
-          left: "-105px",
-          top: "15px",
-          width: "330px",
-          height: "470px",
-          objectFit: "contain",
-          opacity: 0.28,
-          pointerEvents: "none",
-          zIndex: 0,
-        }}
+        className="what-we-do-map"
       />
 
       {/* =========================================
           MAIN CONTENT
-          ========================================= */}
-      <div
-        style={{
-          position: "relative",
-          zIndex: 2,
-          maxWidth: "1420px",
-          margin: "0 auto",
-        }}
-      >
+      ========================================= */}
+      <div className="what-we-do-container">
+
         {/* =========================================
             WHAT WE DO LABEL
-            ========================================= */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: "20px",
-            marginBottom: "22px",
-          }}
-        >
-          <span
-            style={{
-              color: "#145cff",
-              fontWeight: 800,
-              fontSize: "17px",
-              letterSpacing: "5px",
-            }}
-          >
-            WHAT WE DO
-          </span>
-
-          <span
-            style={{
-              width: "55px",
-              height: "2px",
-              background: "#145cff",
-              display: "block",
-            }}
-          />
+        ========================================= */}
+        <div className="what-we-do-label">
+          <span>WHAT WE DO</span>
+          <span className="what-we-do-label-line" />
         </div>
 
         {/* =========================================
             MAIN HEADING
-            ========================================= */}
-        <h2
-          style={{
-            textAlign: "center",
-            fontSize: "52px",
-            lineHeight: 1.15,
-            fontWeight: 800,
-            color: "#050b20",
-            margin: "0 auto 20px",
-            maxWidth: "950px",
-            letterSpacing: "-2px",
-          }}
-        >
+        ========================================= */}
+        <h2 className="what-we-do-heading">
           A Diversified Business Ecosystem
         </h2>
 
         {/* =========================================
             DESCRIPTION
-            ========================================= */}
-        <p
-          style={{
-            maxWidth: "900px",
-            margin: "0 auto",
-            textAlign: "center",
-            color: "#536987",
-            fontSize: "19px",
-            lineHeight: 1.65,
-          }}
-        >
+        ========================================= */}
+        <p className="what-we-do-description">
           RV Brothers Business Consortium operates across multiple sectors,
           connecting quality products with businesses and customers through
           strong distribution, trusted partnerships and operational excellence.
@@ -306,66 +236,23 @@ const WhatWeDo = () => {
 
         {/* =========================================
             FEATURE ROW
-            ========================================= */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-            marginTop: "45px",
-            marginBottom: "45px",
-          }}
-        >
-          {features.map((feature, index) => (
+        ========================================= */}
+        <div className="what-we-do-features">
+          {features.map((feature) => (
             <div
               key={feature.title}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "16px",
-                padding: "0 28px",
-                borderRight:
-                  index !== features.length - 1
-                    ? "1px solid #d8deea"
-                    : "none",
-              }}
+              className="what-we-do-feature"
             >
-              <div
-                style={{
-                  width: "66px",
-                  height: "66px",
-                  minWidth: "66px",
-                  borderRadius: "50%",
-                  background: "#eef4ff",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
+              {/* Icon */}
+              <div className="what-we-do-feature-icon">
                 <Icon type={feature.icon} />
               </div>
 
-              <div>
-                <h3
-                  style={{
-                    margin: "0 0 7px",
-                    color: "#07102b",
-                    fontSize: "17px",
-                    fontWeight: 800,
-                  }}
-                >
-                  {feature.title}
-                </h3>
+              {/* Text */}
+              <div className="what-we-do-feature-content">
+                <h3>{feature.title}</h3>
 
-                <p
-                  style={{
-                    margin: 0,
-                    color: "#405274",
-                    fontSize: "14px",
-                    lineHeight: 1.5,
-                  }}
-                >
-                  {feature.text}
-                </p>
+                <p>{feature.text}</p>
               </div>
             </div>
           ))}
@@ -373,99 +260,40 @@ const WhatWeDo = () => {
 
         {/* =========================================
             BUSINESS CARDS
-            ========================================= */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gap: "18px",
-          }}
-        >
+        ========================================= */}
+        <div className="what-we-do-businesses">
           {businesses.map((business) => (
             <div
               key={business.title}
               className="business-card"
-              style={{
-                background: "#ffffff",
-                border: "1px solid #e1e7f0",
-                borderRadius: "18px",
-                padding: "20px",
-                minHeight: "245px",
-                display: "grid",
-                gridTemplateColumns: "1fr 1.15fr",
-                gap: "20px",
-                boxShadow: "0 8px 25px rgba(18, 43, 84, 0.06)",
-              }}
             >
-              {/* CARD CONTENT */}
-              <div>
-                <div
-                  style={{
-                    width: "55px",
-                    height: "55px",
-                    borderRadius: "14px",
-                    background: "#eef4ff",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    marginBottom: "18px",
-                  }}
-                >
+              {/* =================================
+                  CARD CONTENT
+              ================================= */}
+              <div className="business-card-content">
+
+                {/* Icon */}
+                <div className="business-card-icon">
                   <Icon type={business.icon} />
                 </div>
 
-                <h3
-                  style={{
-                    color: "#07102b",
-                    fontSize: "20px",
-                    lineHeight: 1.25,
-                    margin: "0 0 12px",
-                    fontWeight: 800,
-                  }}
-                >
-                  {business.title}
-                </h3>
+                {/* Title */}
+                <h3>{business.title}</h3>
 
-                <div
-                  style={{
-                    width: "30px",
-                    height: "2px",
-                    background: "#145cff",
-                    marginBottom: "18px",
-                  }}
-                />
+                {/* Divider */}
+                <div className="business-card-divider" />
 
-                <p
-                  style={{
-                    margin: 0,
-                    color: "#526a8c",
-                    fontSize: "15px",
-                    lineHeight: 1.65,
-                  }}
-                >
-                  {business.description}
-                </p>
+                {/* Description */}
+                <p>{business.description}</p>
               </div>
 
-              {/* CARD IMAGE */}
-              <div
-                className="business-card-image"
-                style={{
-                  height: "195px",
-                  borderRadius: "14px",
-                  overflow: "hidden",
-                  background: "#f4f7fc",
-                }}
-              >
+              {/* =================================
+                  CARD IMAGE
+              ================================= */}
+              <div className="business-card-image">
                 <img
                   src={business.image}
                   alt={business.title}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    display: "block",
-                  }}
                 />
               </div>
             </div>
@@ -474,39 +302,13 @@ const WhatWeDo = () => {
 
         {/* =========================================
             BOTTOM CTA
-            ========================================= */}
-        <div
-          style={{
-            marginTop: "26px",
-            borderRadius: "18px",
-            background: "#f1f4ff",
-            padding: "25px 35px",
-            display: "grid",
-            gridTemplateColumns: "1.3fr 1fr auto",
-            alignItems: "center",
-            gap: "35px",
-          }}
-        >
+        ========================================= */}
+        <div className="what-we-do-cta">
+
           {/* CTA LEFT */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "20px",
-            }}
-          >
-            <div
-              style={{
-                width: "65px",
-                height: "65px",
-                minWidth: "65px",
-                borderRadius: "50%",
-                background: "#07163c",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
+          <div className="what-we-do-cta-left">
+
+            <div className="what-we-do-cta-icon">
               <svg
                 width="32"
                 height="32"
@@ -524,37 +326,18 @@ const WhatWeDo = () => {
             </div>
 
             <div>
-              <div
-                style={{
-                  color: "#07163c",
-                  fontSize: "23px",
-                  fontWeight: 800,
-                }}
-              >
+              <div className="what-we-do-cta-title">
                 Different Verticals. One Purpose.
               </div>
 
-              <div
-                style={{
-                  color: "#174de0",
-                  fontSize: "23px",
-                  fontWeight: 800,
-                }}
-              >
+              <div className="what-we-do-cta-title blue">
                 Building Value. Creating Impact.
               </div>
             </div>
           </div>
 
           {/* CTA DESCRIPTION */}
-          <p
-            style={{
-              margin: 0,
-              color: "#3d5276",
-              fontSize: "15px",
-              lineHeight: 1.6,
-            }}
-          >
+          <p className="what-we-do-cta-description">
             We continue to expand our capabilities and explore new
             opportunities to better serve businesses across India.
           </p>
@@ -562,32 +345,9 @@ const WhatWeDo = () => {
           {/* CTA BUTTON */}
           <button
             type="button"
+            className="what-we-do-cta-button"
             onClick={() => {
               window.location.href = "/businesses";
-            }}
-            style={{
-              border: "none",
-              background: "#07163c",
-              color: "#ffffff",
-              padding: "16px 24px",
-              borderRadius: "10px",
-              fontSize: "15px",
-              fontWeight: 700,
-              cursor: "pointer",
-              whiteSpace: "nowrap",
-              transition:
-                "transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "translateY(-3px)";
-              e.currentTarget.style.background = "#145cff";
-              e.currentTarget.style.boxShadow =
-                "0 10px 25px rgba(20, 92, 255, 0.25)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.background = "#07163c";
-              e.currentTarget.style.boxShadow = "none";
             }}
           >
             Explore Our Businesses&nbsp;&nbsp; →
@@ -597,31 +357,268 @@ const WhatWeDo = () => {
 
       {/* =========================================
           RESPONSIVE + HOVER DESIGN
-          ========================================= */}
+      ========================================= */}
       <style>
         {`
-          /* ===============================
-             BUSINESS CARD HOVER
-             =============================== */
+          /* =====================================================
+             MAIN SECTION
+          ===================================================== */
+
+          .what-we-do-section {
+            position: relative;
+            overflow: hidden;
+            background: #ffffff;
+            padding: 90px 46px 60px;
+            font-family:
+              Inter,
+              -apple-system,
+              BlinkMacSystemFont,
+              "Segoe UI",
+              sans-serif;
+            box-sizing: border-box;
+            width: 100%;
+          }
+
+          .what-we-do-section *,
+          .what-we-do-section *::before,
+          .what-we-do-section *::after {
+            box-sizing: border-box;
+          }
+
+
+          /* =====================================================
+             DECORATIVE MAP
+          ===================================================== */
+
+          .what-we-do-map {
+            position: absolute;
+            left: -105px;
+            top: 15px;
+            width: 330px;
+            height: 470px;
+            object-fit: contain;
+            opacity: 0.28;
+            pointer-events: none;
+            z-index: 0;
+          }
+
+
+          /* =====================================================
+             MAIN CONTAINER
+          ===================================================== */
+
+          .what-we-do-container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1420px;
+            margin: 0 auto;
+          }
+
+
+          /* =====================================================
+             SECTION LABEL
+          ===================================================== */
+
+          .what-we-do-label {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 22px;
+          }
+
+          .what-we-do-label span:first-child {
+            color: #145cff;
+            font-weight: 800;
+            font-size: 17px;
+            letter-spacing: 5px;
+          }
+
+          .what-we-do-label-line {
+            width: 55px;
+            height: 2px;
+            background: #145cff;
+            display: block;
+            flex-shrink: 0;
+          }
+
+
+          /* =====================================================
+             MAIN HEADING
+          ===================================================== */
+
+          .what-we-do-heading {
+            text-align: center;
+            font-size: 52px;
+            line-height: 1.15;
+            font-weight: 800;
+            color: #050b20;
+            margin: 0 auto 20px;
+            max-width: 950px;
+            letter-spacing: -2px;
+          }
+
+
+          /* =====================================================
+             DESCRIPTION
+          ===================================================== */
+
+          .what-we-do-description {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            color: #536987;
+            font-size: 19px;
+            line-height: 1.65;
+          }
+
+
+          /* =====================================================
+             FEATURE ROW
+             DESKTOP = 4 COLUMNS
+          ===================================================== */
+
+          .what-we-do-features {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            margin-top: 45px;
+            margin-bottom: 45px;
+            width: 100%;
+          }
+
+          .what-we-do-feature {
+            min-width: 0;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 0 28px;
+            border-right: 1px solid #d8deea;
+          }
+
+          .what-we-do-feature:last-child {
+            border-right: none;
+          }
+
+          .what-we-do-feature-icon {
+            width: 66px;
+            height: 66px;
+            min-width: 66px;
+            border-radius: 50%;
+            background: #eef4ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          .what-we-do-feature-content {
+            min-width: 0;
+          }
+
+          .what-we-do-feature-content h3 {
+            margin: 0 0 7px;
+            color: #07102b;
+            font-size: 17px;
+            font-weight: 800;
+            line-height: 1.25;
+          }
+
+          .what-we-do-feature-content p {
+            margin: 0;
+            color: #405274;
+            font-size: 14px;
+            line-height: 1.5;
+          }
+
+
+          /* =====================================================
+             BUSINESS CARDS
+             DESKTOP = 3 COLUMNS
+          ===================================================== */
+
+          .what-we-do-businesses {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+            width: 100%;
+          }
 
           .business-card {
+            min-width: 0;
+            background: #ffffff;
+            border: 1px solid #e1e7f0;
+            border-radius: 18px;
+            padding: 20px;
+            min-height: 245px;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+            gap: 20px;
+            box-shadow: 0 8px 25px rgba(18, 43, 84, 0.06);
             transition:
               transform 0.3s ease,
               box-shadow 0.3s ease,
               border-color 0.3s ease;
+            overflow: hidden;
           }
 
           .business-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 18px 40px rgba(18, 43, 84, 0.15) !important;
-            border-color: #1764ff !important;
+            box-shadow: 0 18px 40px rgba(18, 43, 84, 0.15);
+            border-color: #1764ff;
           }
 
-          /* ===============================
-             IMAGE HOVER
-             =============================== */
+          .business-card-content {
+            min-width: 0;
+          }
+
+          .business-card-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 14px;
+            background: #eef4ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+          }
+
+          .business-card-content h3 {
+            color: #07102b;
+            font-size: 20px;
+            line-height: 1.25;
+            margin: 0 0 12px;
+            font-weight: 800;
+            overflow-wrap: anywhere;
+          }
+
+          .business-card-divider {
+            width: 30px;
+            height: 2px;
+            background: #145cff;
+            margin-bottom: 18px;
+          }
+
+          .business-card-content p {
+            margin: 0;
+            color: #526a8c;
+            font-size: 15px;
+            line-height: 1.65;
+          }
+
+          .business-card-image {
+            min-width: 0;
+            height: 195px;
+            border-radius: 14px;
+            overflow: hidden;
+            background: #f4f7fc;
+          }
 
           .business-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
             transition: transform 0.4s ease;
           }
 
@@ -629,79 +626,476 @@ const WhatWeDo = () => {
             transform: scale(1.05);
           }
 
-          /* ===============================
-             RESPONSIVE DESIGN
-             =============================== */
+
+          /* =====================================================
+             BOTTOM CTA
+          ===================================================== */
+
+          .what-we-do-cta {
+            margin-top: 26px;
+            border-radius: 18px;
+            background: #f1f4ff;
+            padding: 25px 35px;
+            display: grid;
+            grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 35px;
+            width: 100%;
+          }
+
+          .what-we-do-cta-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            min-width: 0;
+          }
+
+          .what-we-do-cta-icon {
+            width: 65px;
+            height: 65px;
+            min-width: 65px;
+            border-radius: 50%;
+            background: #07163c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          .what-we-do-cta-title {
+            color: #07163c;
+            font-size: 23px;
+            font-weight: 800;
+            line-height: 1.3;
+          }
+
+          .what-we-do-cta-title.blue {
+            color: #174de0;
+          }
+
+          .what-we-do-cta-description {
+            margin: 0;
+            color: #3d5276;
+            font-size: 15px;
+            line-height: 1.6;
+          }
+
+          .what-we-do-cta-button {
+            border: none;
+            background: #07163c;
+            color: #ffffff;
+            padding: 16px 24px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            transition:
+              transform 0.25s ease,
+              background 0.25s ease,
+              box-shadow 0.25s ease;
+          }
+
+          .what-we-do-cta-button:hover {
+            transform: translateY(-3px);
+            background: #145cff;
+            box-shadow: 0 10px 25px rgba(20, 92, 255, 0.25);
+          }
+
+
+          /* =====================================================
+             TABLET
+             901px - 1100px
+          ===================================================== */
 
           @media (max-width: 1100px) {
-            section {
-              padding-left: 25px !important;
-              padding-right: 25px !important;
+
+            .what-we-do-section {
+              padding-left: 25px;
+              padding-right: 25px;
             }
 
-            h2 {
-              font-size: 44px !important;
+            .what-we-do-heading {
+              font-size: 44px;
+            }
+
+            /* 4 feature columns -> 2 columns */
+            .what-we-do-features {
+              grid-template-columns: repeat(2, minmax(0, 1fr));
+              row-gap: 30px;
+            }
+
+            .what-we-do-feature {
+              padding: 0 25px;
+            }
+
+            .what-we-do-feature:nth-child(2) {
+              border-right: none;
+            }
+
+            .what-we-do-feature:nth-child(3) {
+              border-right: 1px solid #d8deea;
+            }
+
+            /* Business cards -> 2 columns */
+            .what-we-do-businesses {
+              grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
             .business-card {
-              grid-template-columns: 1fr !important;
+              grid-template-columns: 1fr;
             }
 
             .business-card-image {
-              height: 220px !important;
+              height: 220px;
+            }
+
+            /* CTA */
+            .what-we-do-cta {
+              grid-template-columns: 1fr 1fr;
+              gap: 25px;
+            }
+
+            .what-we-do-cta-button {
+              grid-column: 1 / -1;
+              justify-self: start;
             }
           }
+
+
+          /* =====================================================
+             TABLET / SMALL SCREEN
+             751px - 900px
+          ===================================================== */
 
           @media (max-width: 900px) {
-            .business-card {
-              grid-template-columns: 1fr !important;
+
+            .what-we-do-section {
+              padding-top: 70px;
+            }
+
+            .what-we-do-feature {
+              padding: 0 18px;
+            }
+
+            .what-we-do-feature-icon {
+              width: 58px;
+              height: 58px;
+              min-width: 58px;
+            }
+
+            .what-we-do-feature-content h3 {
+              font-size: 16px;
+            }
+
+            .what-we-do-feature-content p {
+              font-size: 13px;
             }
 
             .business-card-image {
-              height: 210px !important;
+              height: 210px;
             }
           }
+
+
+          /* =====================================================
+             MOBILE
+             751px AND BELOW
+          ===================================================== */
 
           @media (max-width: 750px) {
-            h2 {
-              font-size: 36px !important;
+
+            .what-we-do-section {
+              padding: 60px 20px 45px;
+              overflow-x: hidden;
             }
 
-            section {
-              padding: 70px 20px 45px !important;
+            .what-we-do-map {
+              left: -150px;
+              top: 20px;
+              width: 260px;
+              height: 380px;
+              opacity: 0.12;
+            }
+
+            .what-we-do-label {
+              gap: 12px;
+              margin-bottom: 18px;
+            }
+
+            .what-we-do-label span:first-child {
+              font-size: 13px;
+              letter-spacing: 3px;
+            }
+
+            .what-we-do-label-line {
+              width: 35px;
+            }
+
+            .what-we-do-heading {
+              font-size: 36px;
+              line-height: 1.12;
+              letter-spacing: -1px;
+              max-width: 100%;
+              margin-bottom: 18px;
+            }
+
+            .what-we-do-description {
+              font-size: 16px;
+              line-height: 1.6;
+            }
+
+            /* =================================================
+               FEATURES
+               2 COLUMNS -> 1 COLUMN
+            ================================================= */
+
+            .what-we-do-features {
+              grid-template-columns: 1fr;
+              gap: 0;
+              margin-top: 35px;
+              margin-bottom: 35px;
+            }
+
+            .what-we-do-feature,
+            .what-we-do-feature:nth-child(2),
+            .what-we-do-feature:nth-child(3) {
+              width: 100%;
+              min-width: 0;
+              padding: 20px 0;
+              border-right: none;
+              border-bottom: 1px solid #d8deea;
+            }
+
+            .what-we-do-feature:first-child {
+              padding-top: 0;
+            }
+
+            .what-we-do-feature:last-child {
+              border-bottom: none;
+              padding-bottom: 0;
+            }
+
+            .what-we-do-feature-icon {
+              width: 58px;
+              height: 58px;
+              min-width: 58px;
+            }
+
+            .what-we-do-feature-content h3 {
+              font-size: 17px;
+              line-height: 1.3;
+            }
+
+            .what-we-do-feature-content p {
+              font-size: 14px;
+              line-height: 1.5;
+            }
+
+
+            /* =================================================
+               BUSINESS CARDS
+               3 COLUMNS -> 1 COLUMN
+            ================================================= */
+
+            .what-we-do-businesses {
+              grid-template-columns: 1fr;
+              gap: 18px;
+              width: 100%;
             }
 
             .business-card {
-              padding: 18px !important;
+              width: 100%;
+              min-width: 0;
+              display: flex;
+              flex-direction: column;
+              gap: 18px;
+              padding: 18px;
+              min-height: 0;
+            }
+
+            .business-card-content {
+              width: 100%;
+            }
+
+            .business-card-icon {
+              width: 55px;
+              height: 55px;
+              margin-bottom: 15px;
+            }
+
+            .business-card-content h3 {
+              font-size: 21px;
+              line-height: 1.3;
+              overflow-wrap: break-word;
+            }
+
+            .business-card-content p {
+              font-size: 14px;
+              line-height: 1.6;
             }
 
             .business-card-image {
-              height: 200px !important;
+              width: 100%;
+              height: 220px;
+              flex-shrink: 0;
+            }
+
+
+            /* =================================================
+               CTA MOBILE
+            ================================================= */
+
+            .what-we-do-cta {
+              margin-top: 20px;
+              padding: 22px 20px;
+              grid-template-columns: 1fr;
+              gap: 20px;
+            }
+
+            .what-we-do-cta-left {
+              align-items: flex-start;
+              gap: 15px;
+            }
+
+            .what-we-do-cta-icon {
+              width: 55px;
+              height: 55px;
+              min-width: 55px;
+            }
+
+            .what-we-do-cta-icon svg {
+              width: 27px;
+              height: 27px;
+            }
+
+            .what-we-do-cta-title {
+              font-size: 18px;
+              line-height: 1.35;
+            }
+
+            .what-we-do-cta-description {
+              font-size: 14px;
+              line-height: 1.6;
+            }
+
+            .what-we-do-cta-button {
+              width: 100%;
+              justify-self: stretch;
+              white-space: normal;
+              padding: 14px 18px;
             }
           }
 
-          @media (max-width: 600px) {
+
+          /* =====================================================
+             SMALL MOBILE
+             480px AND BELOW
+          ===================================================== */
+
+          @media (max-width: 480px) {
+
+            .what-we-do-section {
+              padding: 45px 16px 35px;
+            }
+
+            .what-we-do-heading {
+              font-size: 31px;
+            }
+
+            .what-we-do-description {
+              font-size: 15px;
+            }
+
+            .what-we-do-feature {
+              gap: 14px;
+              padding-top: 18px;
+              padding-bottom: 18px;
+            }
+
+            .what-we-do-feature-icon {
+              width: 52px;
+              height: 52px;
+              min-width: 52px;
+            }
+
+            .what-we-do-feature-icon svg {
+              width: 27px;
+              height: 27px;
+            }
+
+            .what-we-do-feature-content h3 {
+              font-size: 16px;
+            }
+
+            .what-we-do-feature-content p {
+              font-size: 13px;
+            }
+
             .business-card {
-              transform: none;
+              padding: 16px;
+              border-radius: 16px;
             }
 
-            .business-card:hover {
-              transform: translateY(-6px);
+            .business-card-image {
+              height: 190px;
+            }
+
+            .business-card-content h3 {
+              font-size: 19px;
+            }
+
+            .business-card-content p {
+              font-size: 13px;
+            }
+
+            .what-we-do-cta {
+              border-radius: 16px;
+              padding: 20px 16px;
+            }
+
+            .what-we-do-cta-left {
+              gap: 12px;
+            }
+
+            .what-we-do-cta-icon {
+              width: 50px;
+              height: 50px;
+              min-width: 50px;
+            }
+
+            .what-we-do-cta-title {
+              font-size: 16px;
+            }
+
+            .what-we-do-cta-description {
+              font-size: 13px;
+            }
+
+            .what-we-do-cta-button {
+              font-size: 14px;
             }
           }
+
+
+          /* =====================================================
+             ACCESSIBILITY / REDUCED MOTION
+          ===================================================== */
 
           @media (prefers-reduced-motion: reduce) {
+
             .business-card,
-            .business-card-image img {
+            .business-card-image img,
+            .what-we-do-cta-button {
               transition: none !important;
             }
 
-            .business-card:hover {
-              transform: none;
+            .business-card:hover,
+            .what-we-do-cta-button:hover {
+              transform: none !important;
             }
 
             .business-card:hover .business-card-image img {
-              transform: none;
+              transform: none !important;
             }
           }
         `}
