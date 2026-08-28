@@ -41,12 +41,12 @@ export default function BusinessHero() {
   return (
     <>
       {/* 1. Breadcrumbs */}
-      <nav className="flex items-center gap-2 text-xs font-medium text-slate-500 mb-8 sm:mb-12">
-        <Link to="/" className="hover:text-slate-300 transition-colors">
+      <nav className="flex items-center gap-2 text-xs font-semibold text-slate-400 mb-8 sm:mb-12">
+        <Link to="/" className="hover:text-slate-800 transition-colors">
           Home
         </Link>
-        <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
-        <span className="text-slate-400">Our Businesses</span>
+        <ChevronRight className="w-3.5 h-3.5 text-slate-300" />
+        <span className="text-slate-600 font-bold">Our Businesses</span>
       </nav>
 
       {/* 2. Main Content Split */}
@@ -55,19 +55,19 @@ export default function BusinessHero() {
         {/* Left Column: Heading & Intro */}
         <div className="lg:col-span-5 flex flex-col justify-center space-y-6 md:space-y-8">
           <div className="space-y-3">
-            <span className="text-xs sm:text-sm font-bold tracking-[0.2em] text-blue-500 uppercase">
+            <span className="text-xs sm:text-sm font-bold tracking-[0.2em] text-blue-600 uppercase">
               Our Businesses
             </span>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-[1.1]">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.1]">
               A Diversified <br />
-              <span className="bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
                 Business
               </span> <br />
               Ecosystem
             </h1>
           </div>
           
-          <p className="text-slate-400 text-base sm:text-lg leading-relaxed max-w-lg">
+          <p className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-lg">
             From collectibles and wellness products to industrial supplies and strategic distribution, 
             RV Brothers operates across multiple sectors with a focus on quality, reliability, and scalable growth.
           </p>
@@ -82,7 +82,7 @@ export default function BusinessHero() {
             </Link>
             <Link
               to="/contact"
-              className="group flex items-center gap-2 border border-slate-800 hover:border-slate-700 bg-slate-900/40 hover:bg-slate-900/60 text-slate-300 hover:text-white font-semibold px-6 py-3.5 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer"
+              className="group flex items-center gap-2 border border-slate-200 hover:border-slate-300 bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 font-semibold px-6 py-3.5 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer shadow-xs"
             >
               Partner With Us
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -93,7 +93,7 @@ export default function BusinessHero() {
         {/* Right Column: Skewed Grid of Businesses */}
         <div className="lg:col-span-7 relative">
           {/* Background Diagonal Cut Card Area */}
-          <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/20 via-blue-950/10 to-transparent rounded-[32px] blur-sm -m-4 lg:-m-6 z-0" />
+          <div className="absolute inset-0 bg-gradient-to-br from-indigo-100/30 via-blue-50/20 to-transparent rounded-[32px] blur-sm -m-4 lg:-m-6 z-0" />
           
           {/* Skewed Container for Grid */}
           <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:skew-x-[-7deg] origin-center">
@@ -102,7 +102,7 @@ export default function BusinessHero() {
               return (
                 <div
                   key={idx}
-                  className={`group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-900 bg-slate-950/40 hover:border-slate-800/80 transition-all duration-500 shadow-xl hover:shadow-2xl ${biz.color} h-[240px] sm:h-[280px] flex flex-col justify-end p-5 sm:p-6 cursor-pointer`}
+                  className={`group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200 bg-slate-950/40 hover:border-slate-350 transition-all duration-500 shadow-lg hover:shadow-xl ${biz.color} h-[240px] sm:h-[280px] flex flex-col justify-end p-5 sm:p-6 cursor-pointer`}
                 >
                   {/* Background Image Container with Zoom Effect */}
                   <div className="absolute inset-0 z-0 overflow-hidden">

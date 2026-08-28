@@ -82,13 +82,13 @@ export default function BusinessDivisions() {
     <div className="mt-32 sm:mt-40">
       {/* Header Title */}
       <div className="flex flex-col items-center text-center space-y-4 mb-20 sm:mb-24">
-        <span className="text-xs sm:text-sm font-bold tracking-[0.25em] text-blue-500 uppercase">
+        <span className="text-xs sm:text-sm font-bold tracking-[0.25em] text-blue-600 uppercase">
           Our Core Business Divisions
         </span>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
           Diverse Businesses. Unified by Trust.
         </h2>
-        <p className="text-slate-400 text-base sm:text-lg max-w-2xl leading-relaxed">
+        <p className="text-slate-650 text-base sm:text-lg max-w-2xl leading-relaxed">
           RV Brothers operates across multiple industries, delivering quality products, 
           building partnerships and creating value at every step.
         </p>
@@ -115,30 +115,30 @@ export default function BusinessDivisions() {
                   <div className={`text-xs font-bold border px-3 py-1.5 rounded-lg ${div.badgeColor}`}>
                     {div.num}
                   </div>
-                  <span className="text-sm font-bold tracking-wider text-slate-400 uppercase">
+                  <span className="text-sm font-bold tracking-wider text-slate-500 uppercase">
                     {div.title}
                   </span>
                 </div>
 
                 <div className="space-y-4">
-                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-snug">
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug">
                     {div.heading}
                   </h3>
-                  <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
+                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
                     {div.description}
                   </p>
                 </div>
 
                 {/* Features Horizontal Grid */}
-                <div className="grid grid-cols-2 gap-4 pt-2 border-t border-slate-900">
+                <div className="grid grid-cols-2 gap-4 pt-2 border-t border-slate-200">
                   {div.features.map((feat, fidx) => {
                     const FeatIcon = feat.icon;
                     return (
                       <div key={fidx} className="flex gap-3 items-center">
-                        <div className="p-2 rounded-lg bg-slate-950/60 border border-slate-900 text-blue-500">
+                        <div className="p-2 rounded-lg bg-blue-50/50 border border-blue-100 text-blue-600">
                           <FeatIcon className="w-4 h-4" />
                         </div>
-                        <span className="text-xs sm:text-sm font-medium text-slate-300">
+                        <span className="text-xs sm:text-sm font-medium text-slate-700">
                           {feat.label}
                         </span>
                       </div>
@@ -150,7 +150,7 @@ export default function BusinessDivisions() {
                 <div className="pt-2">
                   <Link
                     to={div.link}
-                    className="group inline-flex items-center gap-2 text-blue-500 hover:text-blue-400 font-bold text-sm transition-colors cursor-pointer"
+                    className="group inline-flex items-center gap-2 text-blue-600 hover:text-blue-500 font-bold text-sm transition-colors cursor-pointer"
                   >
                     Explore This Division
                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -165,23 +165,23 @@ export default function BusinessDivisions() {
                 }`}
               >
                 {/* Shadow Backplate */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-900/10 via-transparent to-purple-900/10 rounded-2xl sm:rounded-3xl blur-md -m-2" />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-100/10 via-transparent to-purple-100/10 rounded-2xl sm:rounded-3xl blur-md -m-2" />
                 
-                <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-900/80 bg-slate-950/40 aspect-[4/3] sm:aspect-[16/10]">
+                <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-250 bg-slate-50 aspect-[4/3] sm:aspect-[16/10]">
                   <img
                     src={div.image}
                     alt={div.title}
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                   {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
                   
                   {/* Floating Badge */}
-                  <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-auto max-w-sm backdrop-blur-md bg-slate-950/70 border border-slate-800/80 rounded-xl sm:rounded-2xl p-4 flex gap-4 items-center shadow-2xl transition-all duration-300 group-hover:border-slate-700/50">
-                    <div className="p-3 rounded-lg bg-blue-600/15 border border-blue-500/25 text-blue-400 flex-shrink-0">
+                  <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-auto max-w-sm backdrop-blur-md bg-white/90 border border-slate-200/80 rounded-xl sm:rounded-2xl p-4 flex gap-4 items-center shadow-lg transition-all duration-300 group-hover:border-slate-300">
+                    <div className="p-3 rounded-lg bg-blue-50 border border-blue-100 text-blue-600 flex-shrink-0">
                       <BadgeIcon className="w-5 h-5" />
                     </div>
-                    <p className="text-xs sm:text-sm font-semibold text-slate-200 leading-snug">
+                    <p className="text-xs sm:text-sm font-semibold text-slate-800 leading-snug">
                       {div.badgeText}
                     </p>
                   </div>
