@@ -1,25 +1,22 @@
 import React, { useState } from 'react';
-<<<<<<< HEAD
 import { Link } from 'react-router-dom';
-=======
->>>>>>> 8d5a7f143c8eb222d696dd51d8c59f0da9988b3c
-import { 
-  ChevronRight, 
-  ChevronUp, 
-  ChevronDown, 
-  ShieldCheck, 
-  Package, 
-  Award, 
-  Truck, 
-  ShoppingBag, 
-  Building2, 
-  Heart, 
-  GitCompare, 
-  Share2, 
-  Maximize2, 
-  ArrowLeft, 
-  Lock, 
-  RefreshCw, 
+import {
+  ChevronRight,
+  ChevronUp,
+  ChevronDown,
+  ShieldCheck,
+  Package,
+  Award,
+  Truck,
+  ShoppingBag,
+  Building2,
+  Heart,
+  GitCompare,
+  Share2,
+  Maximize2,
+  ArrowLeft,
+  Lock,
+  RefreshCw,
   CreditCard,
   Check,
   X,
@@ -32,12 +29,10 @@ import RelatedProducts from './RelatedProducts';
 import BusinessEnquiry from './BusinessEnquiry';
 
 export default function SingleProductHero({ product, onBack, onAddToCart, onSelectProduct }) {
-  if (!product) return null;
-
-  // Fallback gallery images if not provided
-  const galleryImages = product.images && product.images.length > 0 
-    ? product.images 
-    : [product.image];
+  // Fallback gallery images if not provided safely
+  const galleryImages = product?.images && product.images.length > 0
+    ? product.images
+    : (product ? [product.image] : []);
 
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [isWishlisted, setIsWishlisted] = useState(false);
@@ -45,15 +40,17 @@ export default function SingleProductHero({ product, onBack, onAddToCart, onSele
   const [enquirySuccess, setEnquirySuccess] = useState(false);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [showShareNotification, setShowShareNotification] = useState(false);
-  
+
   // Form state for enquiry
   const [enquiryForm, setEnquiryForm] = useState({
     name: '',
     email: '',
     phone: '',
     quantity: '10',
-    message: `Hi, I am interested in bulk procurement for "${product.title}". Please share details regarding price and lead time.`
+    message: `Hi, I am interested in bulk procurement for "${product?.title || ''}". Please share details regarding price and lead time.`
   });
+
+  if (!product) return null;
 
   const handleThumbnailClick = (index) => {
     setActiveImageIndex(index);
@@ -110,38 +107,36 @@ export default function SingleProductHero({ product, onBack, onAddToCart, onSele
 
       {/* Breadcrumbs Navigation */}
       <nav className="flex items-center flex-wrap gap-2 text-xs font-semibold text-slate-400 mb-6 px-1 sm:px-0">
-        <button 
+        <button
           onClick={onBack}
           className="flex items-center gap-1 text-blue-600 hover:text-blue-800 transition-colors mr-2 cursor-pointer font-bold"
         >
           <ArrowLeft className="w-3.5 h-3.5" /> Back to Shop
         </button>
         <ChevronRight className="w-3 h-3 text-slate-300" />
-<<<<<<< HEAD
-        <Link to="/" className="hover:text-slate-655 cursor-pointer">Home</Link>
-=======
-        <span className="hover:text-slate-655 cursor-pointer" onClick={onBack}>Home</span>
->>>>>>> 8d5a7f143c8eb222d696dd51d8c59f0da9988b3c
+        <Link to="/" className="hover:text-slate-700 cursor-pointer">Home</Link>
         <ChevronRight className="w-3 h-3 text-slate-300" />
-        <span className="hover:text-slate-655 cursor-pointer">{product.category}</span>
+        <span className="hover:text-slate-700 cursor-pointer">{product.category}</span>
         <ChevronRight className="w-3 h-3 text-slate-300" />
-        {product.subcategory && (
-          <>
-            <span className="hover:text-slate-655 cursor-pointer">{product.subcategory}</span>
-            <ChevronRight className="w-3 h-3 text-slate-300" />
-          </>
-        )}
-        <span className="text-slate-600 font-bold truncate max-w-[200px] sm:max-w-xs">{product.title}</span>
-      </nav>
+  {
+    product.subcategory && (
+      <>
+        <span className="hover:text-slate-700 cursor-pointer">{product.subcategory}</span>
+        <ChevronRight className="w-3 h-3 text-slate-300" />
+      </>
+    )
+  }
+  <span className="text-slate-600 font-bold truncate max-w-[200px] sm:max-w-xs">{product.title}</span>
+      </nav >
 
-      {/* Main Container */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start bg-white rounded-3xl border border-slate-200/80 p-4 sm:p-6 lg:p-8 shadow-sm">
-        
-        {/* Left Side: Product Gallery (Thumbs + Image) - takes 6/12 columns */}
-        <div className="lg:col-span-7 flex flex-col-reverse sm:flex-row gap-4 h-full">
-          
-          {/* Thumbnails list */}
-          <div className="flex sm:flex-col items-center justify-between sm:justify-start gap-3 w-full sm:w-20 md:w-24">
+    {/* Main Container */ }
+    < div className = "grid grid-cols-1 lg:grid-cols-12 gap-8 items-start bg-white rounded-3xl border border-slate-200/80 p-4 sm:p-6 lg:p-8 shadow-sm" >
+
+      {/* Left Side: Product Gallery (Thumbs + Image) - takes 6/12 columns */ }
+      < div className = "lg:col-span-7 flex flex-col-reverse sm:flex-row gap-4 h-full" >
+
+        {/* Thumbnails list */ }
+        < div className = "flex sm:flex-col items-center justify-between sm:justify-start gap-3 w-full sm:w-20 md:w-24" >
             <button 
               onClick={handlePrevThumbnail}
               className="p-1.5 rounded-lg border border-slate-200 text-slate-500 hover:bg-slate-50 hover:text-slate-800 transition-all cursor-pointer hidden sm:block"
@@ -177,46 +172,46 @@ export default function SingleProductHero({ product, onBack, onAddToCart, onSele
             >
               <ChevronDown className="w-4 h-4" />
             </button>
-          </div>
+          </div >
 
-          {/* Main Large Image Display */}
-          <div className="flex-1 relative aspect-square rounded-2xl border border-slate-200 bg-gradient-to-tr from-slate-50/50 to-white/30 overflow-hidden flex items-center justify-center p-4 group">
-            <img 
-              src={galleryImages[activeImageIndex]} 
-              alt={product.title} 
-              className="max-h-[90%] max-w-[90%] object-contain transition-transform duration-500 ease-out group-hover:scale-102"
-            />
-            
-            {/* Zoom / Lightbox Trigger */}
-            <button 
-              onClick={() => setIsLightboxOpen(true)}
-              className="absolute top-4 right-4 p-2.5 rounded-full bg-white/90 backdrop-blur-xs border border-slate-200/80 text-slate-650 hover:text-blue-600 hover:scale-110 shadow-sm transition-all duration-300 cursor-pointer z-10"
-              title="Expand image"
-            >
-              <Maximize2 className="w-4.5 h-4.5" />
-            </button>
-          </div>
-        </div>
+    {/* Main Large Image Display */ }
+    < div className = "flex-1 relative aspect-square rounded-2xl border border-slate-200 bg-gradient-to-tr from-slate-50/50 to-white/30 overflow-hidden flex items-center justify-center p-4 group" >
+      <img
+        src={galleryImages[activeImageIndex]}
+        alt={product.title}
+        className="max-h-[90%] max-w-[90%] object-contain transition-transform duration-500 ease-out group-hover:scale-102"
+      />
 
-        {/* Right Side: Product Meta & Purchase Controls - takes 5/12 columns */}
-        <div className="lg:col-span-5 space-y-6">
-          {/* Badge & Category */}
-          <div className="space-y-2">
+  {/* Zoom / Lightbox Trigger */ }
+  <button
+    onClick={() => setIsLightboxOpen(true)}
+    className="absolute top-4 right-4 p-2.5 rounded-full bg-white/90 backdrop-blur-xs border border-slate-200/80 text-slate-650 hover:text-blue-600 hover:scale-110 shadow-sm transition-all duration-300 cursor-pointer z-10"
+    title="Expand image"
+  >
+    <Maximize2 className="w-4.5 h-4.5" />
+  </button>
+          </div >
+        </div >
+
+    {/* Right Side: Product Meta & Purchase Controls - takes 5/12 columns */ }
+    < div className = "lg:col-span-5 space-y-6" >
+      {/* Badge & Category */ }
+      < div className = "space-y-2" >
             <span className="inline-block px-3 py-1 bg-blue-50 text-blue-700 border border-blue-100 rounded-full text-[10px] font-extrabold uppercase tracking-widest">
               {product.category}
             </span>
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
               {product.title}
             </h1>
-          </div>
+          </div >
 
-          {/* Description */}
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            {product.description}
-          </p>
+    {/* Description */ }
+    < p className = "text-slate-600 text-sm sm:text-base leading-relaxed" >
+      { product.description }
+          </p >
 
-          {/* Price & Stock info */}
-          <div className="pt-2 pb-4 border-b border-slate-200/80">
+    {/* Price & Stock info */ }
+    < div className = "pt-2 pb-4 border-b border-slate-200/80" >
             <div className="flex items-baseline gap-4">
               <span className="text-3xl sm:text-4xl font-black text-slate-950">
                 {formatPrice(product.price)}
@@ -229,10 +224,10 @@ export default function SingleProductHero({ product, onBack, onAddToCart, onSele
             <p className="text-xs text-slate-400 mt-1.5 font-medium">
               Inclusive of all taxes
             </p>
-          </div>
+          </div >
 
-          {/* Quality check icons matching reference image */}
-          <div className="grid grid-cols-2 gap-4 py-2">
+    {/* Quality check icons matching reference image */ }
+    < div className = "grid grid-cols-2 gap-4 py-2" >
             <div className="flex items-center gap-3">
               <div className="p-2 bg-blue-50/50 rounded-xl border border-blue-100">
                 <ShieldCheck className="w-5 h-5 text-blue-600" />
@@ -272,10 +267,10 @@ export default function SingleProductHero({ product, onBack, onAddToCart, onSele
                 <p className="text-[10px] text-slate-500 leading-none mt-0.5">Fast & Insured</p>
               </div>
             </div>
-          </div>
+          </div >
 
-          {/* Action buttons (Add to Cart / Business Enquiry) */}
-          <div className="flex flex-col sm:flex-row gap-3.5 pt-2">
+    {/* Action buttons (Add to Cart / Business Enquiry) */ }
+    < div className = "flex flex-col sm:flex-row gap-3.5 pt-2" >
             <button
               onClick={() => onAddToCart && onAddToCart(product)}
               className="flex-1 flex items-center justify-center gap-2.5 bg-[#0a1128] hover:bg-[#121c3b] text-white font-bold py-3.5 px-6 rounded-xl transition-all duration-300 transform active:scale-98 shadow-md hover:shadow-lg cursor-pointer text-sm"
@@ -291,10 +286,10 @@ export default function SingleProductHero({ product, onBack, onAddToCart, onSele
               <Building2 className="w-4.5 h-4.5 text-slate-500 group-hover:text-blue-600" />
               Business Enquiry
             </button>
-          </div>
+          </div >
 
-          {/* Secondary Actions (Wishlist / Compare / Share) */}
-          <div className="flex items-center justify-between border-t border-slate-200/80 pt-4 gap-2">
+    {/* Secondary Actions (Wishlist / Compare / Share) */ }
+    < div className = "flex items-center justify-between border-t border-slate-200/80 pt-4 gap-2" >
             <button
               onClick={() => setIsWishlisted(!isWishlisted)}
               className={`flex-1 flex items-center justify-center gap-2 py-2 px-3 rounded-lg border border-slate-200 hover:border-slate-300 text-xs font-bold transition-all cursor-pointer ${
@@ -306,7 +301,7 @@ export default function SingleProductHero({ product, onBack, onAddToCart, onSele
             </button>
 
             <button
-              className="flex-1 flex items-center justify-center gap-2 py-2 px-3 rounded-lg border border-slate-200 hover:border-slate-300 text-xs font-bold bg-white text-slate-655 hover:bg-slate-50 cursor-pointer"
+              className="flex-1 flex items-center justify-center gap-2 py-2 px-3 rounded-lg border border-slate-200 hover:border-slate-300 text-xs font-bold bg-white text-slate-700 hover:bg-slate-50 cursor-pointer"
             >
               <GitCompare className="w-3.5 h-3.5 text-slate-400" />
               Compare
@@ -314,18 +309,18 @@ export default function SingleProductHero({ product, onBack, onAddToCart, onSele
 
             <button
               onClick={handleShare}
-              className="flex-1 flex items-center justify-center gap-2 py-2 px-3 rounded-lg border border-slate-200 hover:border-slate-300 text-xs font-bold bg-white text-slate-655 hover:bg-slate-50 cursor-pointer"
+              className="flex-1 flex items-center justify-center gap-2 py-2 px-3 rounded-lg border border-slate-200 hover:border-slate-300 text-xs font-bold bg-white text-slate-700 hover:bg-slate-50 cursor-pointer"
             >
               <Share2 className="w-3.5 h-3.5 text-slate-400" />
               Share
             </button>
-          </div>
+          </div >
 
-        </div>
-      </div>
+        </div >
+      </div >
 
-      {/* Trust and confidence bottom banner matching reference image */}
-      <div className="w-full mt-6 bg-white rounded-2xl border border-slate-200/80 p-4 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+    {/* Trust and confidence bottom banner matching reference image */ }
+    < div className = "w-full mt-6 bg-white rounded-2xl border border-slate-200/80 p-4 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6" >
         <div className="flex items-center gap-4 text-left w-full md:w-auto">
           <div className="p-3 bg-emerald-50 rounded-full border border-emerald-100 flex-shrink-0">
             <ShieldCheck className="w-6 h-6 text-emerald-600" />
@@ -363,144 +358,148 @@ export default function SingleProductHero({ product, onBack, onAddToCart, onSele
             </div>
           </div>
         </div>
-      </div>
+      </div >
 
-      {/* Trust Badge Indicators */}
-      <ShopTrust />
+    {/* Trust Badge Indicators */ }
+    < ShopTrust />
 
-      {/* Customer Reviews Section */}
-      <CustomerReview product={product} />
+    {/* Customer Reviews Section */ }
+    < CustomerReview product = { product } />
 
-      {/* Related Products Section */}
-      <RelatedProducts product={product} onSelectProduct={onSelectProduct} />
+      {/* Related Products Section */ }
+      < RelatedProducts product = { product } onSelectProduct = { onSelectProduct } />
 
-      {/* Business Enquiry Section */}
-      <BusinessEnquiry product={product} />
+        {/* Business Enquiry Section */ }
+        < BusinessEnquiry product = { product } />
 
-      {/* Lightbox / Expanded Image modal */}
-      {isLightboxOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/95 backdrop-blur-sm p-4 animate-fade-in">
-          <button 
-            onClick={() => setIsLightboxOpen(false)}
-            className="absolute top-6 right-6 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all cursor-pointer"
-          >
-            <X className="w-6 h-6" />
-          </button>
-          
-          <div className="relative max-w-4xl max-h-[85vh] w-full flex items-center justify-center">
-            <img 
-              src={galleryImages[activeImageIndex]} 
-              alt={product.title} 
-              className="max-h-[85vh] max-w-full object-contain" 
-            />
-          </div>
+          {/* Lightbox / Expanded Image modal */ }
+  {
+    isLightboxOpen && (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/95 backdrop-blur-sm p-4 animate-fade-in">
+        <button
+          onClick={() => setIsLightboxOpen(false)}
+          className="absolute top-6 right-6 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all cursor-pointer"
+        >
+          <X className="w-6 h-6" />
+        </button>
+
+        <div className="relative max-w-4xl max-h-[85vh] w-full flex items-center justify-center">
+          <img
+            src={galleryImages[activeImageIndex]}
+            alt={product.title}
+            className="max-h-[85vh] max-w-full object-contain"
+          />
         </div>
-      )}
+      </div>
+    )
+  }
 
-      {/* Business Enquiry Modal */}
-      {isEnquiryOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/50 backdrop-blur-xs p-4 animate-fade-in">
-          <div className="bg-white w-full max-w-md rounded-2xl border border-slate-200 shadow-2xl p-6 relative overflow-hidden">
-            <button 
-              onClick={() => setIsEnquiryOpen(false)}
-              className="absolute top-4 right-4 p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-50 cursor-pointer"
-            >
-              <X className="w-5 h-5" />
-            </button>
+  {/* Business Enquiry Modal */ }
+  {
+    isEnquiryOpen && (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/50 backdrop-blur-xs p-4 animate-fade-in">
+        <div className="bg-white w-full max-w-md rounded-2xl border border-slate-200 shadow-2xl p-6 relative overflow-hidden">
+          <button
+            onClick={() => setIsEnquiryOpen(false)}
+            className="absolute top-4 right-4 p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-50 cursor-pointer"
+          >
+            <X className="w-5 h-5" />
+          </button>
 
-            <div className="space-y-4">
-              <div className="flex items-center gap-2 text-blue-600">
-                <Building2 className="w-5 h-5" />
-                <h3 className="font-extrabold text-lg text-slate-900">Business Procurement Enquiry</h3>
+          <div className="space-y-4">
+            <div className="flex items-center gap-2 text-blue-600">
+              <Building2 className="w-5 h-5" />
+              <h3 className="font-extrabold text-lg text-slate-900">Business Procurement Enquiry</h3>
+            </div>
+            <p className="text-xs text-slate-500 leading-relaxed">
+              Send bulk pricing or product details enquiry directly to the RV Brothers Business Consortium.
+            </p>
+
+            {enquirySuccess ? (
+              <div className="py-8 flex flex-col items-center justify-center text-center space-y-3 bg-emerald-50 rounded-xl border border-emerald-100">
+                <div className="w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center text-white">
+                  <Check className="w-6 h-6" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-emerald-800">Enquiry Submitted!</h4>
+                  <p className="text-xs text-emerald-600 mt-1">Our procurement desk will respond within 24 hours.</p>
+                </div>
               </div>
-              <p className="text-xs text-slate-500 leading-relaxed">
-                Send bulk pricing or product details enquiry directly to the RV Brothers Business Consortium.
-              </p>
+            ) : (
+              <form onSubmit={handleEnquirySubmit} className="space-y-3.5">
+                <div className="space-y-1">
+                  <label className="text-[10px] font-bold uppercase tracking-wider text-slate-500">Full Name</label>
+                  <input
+                    type="text"
+                    required
+                    className="w-full bg-slate-50 border border-slate-200 focus:border-blue-600 focus:bg-white text-sm rounded-xl py-2 px-3 outline-none transition-all"
+                    placeholder="Enter your name"
+                    value={enquiryForm.name}
+                    onChange={e => setEnquiryForm({ ...enquiryForm, name: e.target.value })}
+                  />
+                </div>
 
-              {enquirySuccess ? (
-                <div className="py-8 flex flex-col items-center justify-center text-center space-y-3 bg-emerald-50 rounded-xl border border-emerald-100">
-                  <div className="w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center text-white">
-                    <Check className="w-6 h-6" />
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="space-y-1">
+                    <label className="text-[10px] font-bold uppercase tracking-wider text-slate-500">Business Email</label>
+                    <input
+                      type="email"
+                      required
+                      className="w-full bg-slate-50 border border-slate-200 focus:border-blue-600 focus:bg-white text-sm rounded-xl py-2 px-3 outline-none transition-all"
+                      placeholder="email@company.com"
+                      value={enquiryForm.email}
+                      onChange={e => setEnquiryForm({ ...enquiryForm, email: e.target.value })}
+                    />
                   </div>
-                  <div>
-                    <h4 className="font-bold text-emerald-800">Enquiry Submitted!</h4>
-                    <p className="text-xs text-emerald-600 mt-1">Our procurement desk will respond within 24 hours.</p>
+                  <div className="space-y-1">
+                    <label className="text-[10px] font-bold uppercase tracking-wider text-slate-500">Phone / WhatsApp</label>
+                    <input
+                      type="tel"
+                      required
+                      className="w-full bg-slate-50 border border-slate-200 focus:border-blue-600 focus:bg-white text-sm rounded-xl py-2 px-3 outline-none transition-all"
+                      placeholder="+91..."
+                      value={enquiryForm.phone}
+                      onChange={e => setEnquiryForm({ ...enquiryForm, phone: e.target.value })}
+                    />
                   </div>
                 </div>
-              ) : (
-                <form onSubmit={handleEnquirySubmit} className="space-y-3.5">
-                  <div className="space-y-1">
-                    <label className="text-[10px] font-bold uppercase tracking-wider text-slate-500">Full Name</label>
-                    <input 
-                      type="text" 
-                      required 
-                      className="w-full bg-slate-50 border border-slate-200 focus:border-blue-600 focus:bg-white text-sm rounded-xl py-2 px-3 outline-none transition-all"
-                      placeholder="Enter your name"
-                      value={enquiryForm.name}
-                      onChange={e => setEnquiryForm({...enquiryForm, name: e.target.value})}
-                    />
-                  </div>
 
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="space-y-1">
-                      <label className="text-[10px] font-bold uppercase tracking-wider text-slate-500">Business Email</label>
-                      <input 
-                        type="email" 
-                        required 
-                        className="w-full bg-slate-50 border border-slate-200 focus:border-blue-600 focus:bg-white text-sm rounded-xl py-2 px-3 outline-none transition-all"
-                        placeholder="email@company.com"
-                        value={enquiryForm.email}
-                        onChange={e => setEnquiryForm({...enquiryForm, email: e.target.value})}
-                      />
-                    </div>
-                    <div className="space-y-1">
-                      <label className="text-[10px] font-bold uppercase tracking-wider text-slate-500">Phone / WhatsApp</label>
-                      <input 
-                        type="tel" 
-                        required 
-                        className="w-full bg-slate-50 border border-slate-200 focus:border-blue-600 focus:bg-white text-sm rounded-xl py-2 px-3 outline-none transition-all"
-                        placeholder="+91..."
-                        value={enquiryForm.phone}
-                        onChange={e => setEnquiryForm({...enquiryForm, phone: e.target.value})}
-                      />
-                    </div>
-                  </div>
+                <div className="space-y-1">
+                  <label className="text-[10px] font-bold uppercase tracking-wider text-slate-500">Target Quantity</label>
+                  <input
+                    type="number"
+                    required
+                    className="w-full bg-slate-50 border border-slate-200 focus:border-blue-600 focus:bg-white text-sm rounded-xl py-2 px-3 outline-none transition-all"
+                    placeholder="e.g. 50"
+                    value={enquiryForm.quantity}
+                    onChange={e => setEnquiryForm({ ...enquiryForm, quantity: e.target.value })}
+                  />
+                </div>
 
-                  <div className="space-y-1">
-                    <label className="text-[10px] font-bold uppercase tracking-wider text-slate-500">Target Quantity</label>
-                    <input 
-                      type="number" 
-                      required 
-                      className="w-full bg-slate-50 border border-slate-200 focus:border-blue-600 focus:bg-white text-sm rounded-xl py-2 px-3 outline-none transition-all"
-                      placeholder="e.g. 50"
-                      value={enquiryForm.quantity}
-                      onChange={e => setEnquiryForm({...enquiryForm, quantity: e.target.value})}
-                    />
-                  </div>
+                <div className="space-y-1">
+                  <label className="text-[10px] font-bold uppercase tracking-wider text-slate-500">Requirement Message</label>
+                  <textarea
+                    rows={3}
+                    className="w-full bg-slate-50 border border-slate-200 focus:border-blue-600 focus:bg-white text-sm rounded-xl py-2 px-3 outline-none transition-all resize-none"
+                    value={enquiryForm.message}
+                    onChange={e => setEnquiryForm({ ...enquiryForm, message: e.target.value })}
+                  />
+                </div>
 
-                  <div className="space-y-1">
-                    <label className="text-[10px] font-bold uppercase tracking-wider text-slate-500">Requirement Message</label>
-                    <textarea 
-                      rows={3} 
-                      className="w-full bg-slate-50 border border-slate-200 focus:border-blue-600 focus:bg-white text-sm rounded-xl py-2 px-3 outline-none transition-all resize-none"
-                      value={enquiryForm.message}
-                      onChange={e => setEnquiryForm({...enquiryForm, message: e.target.value})}
-                    />
-                  </div>
-
-                  <button 
-                    type="submit" 
-                    className="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-755 text-white font-bold py-2.5 px-4 rounded-xl transition-all cursor-pointer text-sm shadow-md"
-                  >
-                    <Send className="w-4 h-4" />
-                    Submit Bulk Request
-                  </button>
-                </form>
-              )}
-            </div>
+                <button
+                  type="submit"
+                  className="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-4 rounded-xl transition-all cursor-pointer text-sm shadow-md"
+                >
+                  <Send className="w-4 h-4" />
+                  Submit Bulk Request
+                </button>
+              </form>
+            )}
           </div>
         </div>
-      )}
-    </div>
+      </div>
+    )
+  }
+    </div >
   );
 }

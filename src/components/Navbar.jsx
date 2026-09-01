@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import logoImg from '../assets/logo.jpg';
 import { Link, useLocation } from 'react-router-dom';
+import Login from './Login';
 import {
   Shield,
   Award,
@@ -14,6 +15,7 @@ import {
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [cartCount] = useState(2);
   const location = useLocation();
 
@@ -123,7 +125,10 @@ export default function Navbar() {
             <button className="text-slate-300 hover:text-white transition-colors p-1.5 hover:bg-slate-900 rounded-lg">
               <Search className="w-5 h-5" />
             </button>
-            <button className="text-slate-300 hover:text-white transition-colors p-1.5 hover:bg-slate-900 rounded-lg">
+            <button 
+              onClick={() => setIsLoginOpen(true)}
+              className="text-slate-300 hover:text-white transition-colors p-1.5 hover:bg-slate-900 rounded-lg"
+            >
               <User className="w-5 h-5" />
             </button>
             <button className="text-slate-300 hover:text-white transition-colors p-1.5 hover:bg-slate-900 rounded-lg relative">
@@ -213,7 +218,13 @@ export default function Navbar() {
                 <button className="flex-1 flex items-center justify-center gap-2 py-2.5 border border-slate-800 rounded-lg text-sm text-slate-300 hover:text-white">
                   <Search className="w-4 h-4" /> Search
                 </button>
-                <button className="flex-1 flex items-center justify-center gap-2 py-2.5 border border-slate-800 rounded-lg text-sm text-slate-300 hover:text-white">
+                <button 
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    setIsLoginOpen(true);
+                  }}
+                  className="flex-1 flex items-center justify-center gap-2 py-2.5 border border-slate-800 rounded-lg text-sm text-slate-300 hover:text-white"
+                >
                   <User className="w-4 h-4" /> Profile
                 </button>
               </div>
@@ -228,6 +239,9 @@ export default function Navbar() {
           </div>
         )}
       </header>
+      
+      {/* Login Modal/Drawer */}
+      <Login isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
     </>
   );
 }

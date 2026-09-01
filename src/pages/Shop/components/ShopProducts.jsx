@@ -25,16 +25,9 @@ import helicalGearboxImg from "../../../assets/helical_gearbox.png";
 import boltsNutsImg from "../../../assets/bolts_nuts.png";
 import engineOilImg from "../../../assets/engine_oil.png";
 import packagingTapeImg from "../../../assets/packaging_tape.png";
-import britishCoinImg from "../../../assets/british_coin.jpg";
-import britishCoinObverseImg from "../../../assets/british_coin_obverse.jpg";
-import britishCoinReverseImg from "../../../assets/british_coin_reverse.jpg";
-import britishCoinBoxImg from "../../../assets/british_coin_box.jpg";
 
-<<<<<<< HEAD
+// eslint-disable-next-line react-refresh/only-export-components
 export const INITIAL_PRODUCTS = [
-=======
-const INITIAL_PRODUCTS = [
->>>>>>> 8d5a7f143c8eb222d696dd51d8c59f0da9988b3c
   {
     id: 1,
     category: 'Toys & Collectibles',

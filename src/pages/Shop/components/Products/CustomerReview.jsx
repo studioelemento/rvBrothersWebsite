@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import { 
-  Star, 
-  ShieldCheck, 
-  ChevronDown, 
-  Edit3, 
-  Check, 
-  X,
-  MessageSquare
+import {
+  Star,
+  ShieldCheck,
+  ChevronDown,
+  Edit3,
+  Check
 } from 'lucide-react';
 
 // Mock reviews data categorized by product category
@@ -115,15 +113,17 @@ const GENERAL_FALLBACK_REVIEWS = [
 ];
 
 export default function CustomerReview({ product }) {
-  if (!product) return null;
+  // Resolve appropriate reviews safely
+  const safeCategory = product?.category;
+  const initialReviewsList = safeCategory && MOCK_REVIEWS_BY_CATEGORY[safeCategory] 
+    ? MOCK_REVIEWS_BY_CATEGORY[safeCategory] 
+    : GENERAL_FALLBACK_REVIEWS;
 
-  // Resolve appropriate reviews
-  const initialReviewsList = MOCK_REVIEWS_BY_CATEGORY[product.category] || GENERAL_FALLBACK_REVIEWS;
   const [reviews, setReviews] = useState(initialReviewsList);
   const [activeTab, setActiveTab] = useState('all'); // 'all' or 'photos'
   const [sortBy, setSortBy] = useState('recent'); // 'recent', 'highest', 'lowest'
   const [showSortDropdown, setShowSortDropdown] = useState(false);
-  
+
   // Write a Review Form States
   const [ratingInput, setRatingInput] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
@@ -132,6 +132,8 @@ export default function CustomerReview({ product }) {
   const [formTitle, setFormTitle] = useState('');
   const [formText, setFormText] = useState('');
   const [formSubmitted, setFormSubmitted] = useState(false);
+
+  if (!product) return null;
 
   // Calculate review numbers
   const totalReviewsCount = reviews.length;
@@ -158,7 +160,7 @@ export default function CustomerReview({ product }) {
 
     setReviews([newReview, ...reviews]);
     setFormSubmitted(true);
-    
+
     // Reset fields
     setRatingInput(0);
     setFormName('');
@@ -199,7 +201,7 @@ export default function CustomerReview({ product }) {
 
   return (
     <div className="w-full bg-[#f8fafc] text-slate-800 py-12 border-t border-slate-200">
-      
+
       {/* Header section with decorative lines */}
       <div className="text-center mb-10 max-w-xl mx-auto px-4">
         <div className="flex items-center justify-center gap-3 mb-2">
@@ -219,7 +221,7 @@ export default function CustomerReview({ product }) {
 
       {/* Main split grid */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start max-w-7xl mx-auto px-4 w-full">
-        
+
         {/* Left column: Summary Card */}
         <div className="lg:col-span-4 bg-white border border-slate-250/60 rounded-3xl p-6 shadow-xs space-y-6">
           <div className="text-center space-y-2">
@@ -229,13 +231,13 @@ export default function CustomerReview({ product }) {
             </div>
             <p className="text-xs text-slate-400 font-bold uppercase tracking-wider">Out of 5</p>
             <p className="text-xs text-slate-400 font-medium">Based on {totalReviewsCount} reviews</p>
-            
+
             {/* Stars row */}
             <div className="flex justify-center gap-1 mt-1">
               {[1, 2, 3, 4, 5].map((s) => (
-                <Star 
-                  key={s} 
-                  className={`w-5 h-5 ${s <= Math.round(averageRating) ? 'fill-amber-400 text-amber-400' : 'text-slate-200'}`} 
+                <Star
+                  key={s}
+                  className={`w-5 h-5 ${s <= Math.round(averageRating) ? 'fill-amber-400 text-amber-400' : 'text-slate-200'}`}
                 />
               ))}
             </div>
@@ -253,8 +255,8 @@ export default function CustomerReview({ product }) {
               <div key={idx} className="flex items-center justify-between text-xs gap-3 font-semibold text-slate-650">
                 <span className="w-12 text-slate-500">{row.label}</span>
                 <div className="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden relative">
-                  <div 
-                    className="h-full bg-amber-500 rounded-full" 
+                  <div
+                    className="h-full bg-amber-500 rounded-full"
                     style={{ width: getPercentage(row.count) }}
                   />
                 </div>
@@ -277,29 +279,27 @@ export default function CustomerReview({ product }) {
 
         {/* Right column: Reviews List */}
         <div className="lg:col-span-8 space-y-5">
-          
+
           {/* List Toolbar / Filters */}
           <div className="flex items-center justify-between border-b border-slate-200 pb-3 flex-wrap gap-4">
-            
+
             {/* Tabs */}
             <div className="flex gap-4">
-              <button 
+              <button
                 onClick={() => setActiveTab('all')}
-                className={`pb-3 text-xs font-bold border-b-2 cursor-pointer transition-colors ${
-                  activeTab === 'all' 
-                    ? 'border-blue-600 text-blue-600 font-extrabold' 
+                className={`pb-3 text-xs font-bold border-b-2 cursor-pointer transition-colors ${activeTab === 'all'
+                    ? 'border-blue-600 text-blue-600 font-extrabold'
                     : 'border-transparent text-slate-400 hover:text-slate-600'
-                }`}
+                  }`}
               >
                 All Reviews ({totalReviewsCount})
               </button>
-              <button 
+              <button
                 onClick={() => setActiveTab('photos')}
-                className={`pb-3 text-xs font-bold border-b-2 cursor-pointer transition-colors ${
-                  activeTab === 'photos' 
-                    ? 'border-blue-600 text-blue-600 font-extrabold' 
+                className={`pb-3 text-xs font-bold border-b-2 cursor-pointer transition-colors ${activeTab === 'photos'
+                    ? 'border-blue-600 text-blue-600 font-extrabold'
                     : 'border-transparent text-slate-400 hover:text-slate-600'
-                }`}
+                  }`}
               >
                 With Photos ({reviewsWithPhotosCount})
               </button>
@@ -313,7 +313,7 @@ export default function CustomerReview({ product }) {
               >
                 <span>
                   {sortBy === 'recent' ? 'Most Recent' :
-                   sortBy === 'highest' ? 'Highest Rated' : 'Lowest Rated'}
+                    sortBy === 'highest' ? 'Highest Rated' : 'Lowest Rated'}
                 </span>
                 <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
               </button>
@@ -350,7 +350,7 @@ export default function CustomerReview({ product }) {
               </div>
             ) : (
               filteredReviews.map((review) => (
-                <div 
+                <div
                   key={review.id}
                   className="bg-white border border-slate-150 rounded-2xl p-5 shadow-xs flex gap-4 hover:border-slate-300 transition-all duration-300 relative overflow-hidden"
                 >
@@ -376,9 +376,9 @@ export default function CustomerReview({ product }) {
                     {/* Stars Row */}
                     <div className="flex gap-0.5">
                       {[1, 2, 3, 4, 5].map((s) => (
-                        <Star 
-                          key={s} 
-                          className={`w-3.5 h-3.5 ${s <= review.rating ? 'fill-amber-400 text-amber-400' : 'text-slate-100'}`} 
+                        <Star
+                          key={s}
+                          className={`w-3.5 h-3.5 ${s <= review.rating ? 'fill-amber-400 text-amber-400' : 'text-slate-100'}`}
                         />
                       ))}
                     </div>
@@ -395,9 +395,9 @@ export default function CustomerReview({ product }) {
                   {/* Right Column: Review Photo if provided */}
                   {review.hasPhoto && product.images && product.images[review.photoIndex] && (
                     <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden bg-slate-50 border border-slate-200 flex-shrink-0 flex items-center justify-center p-1 cursor-pointer hover:scale-105 transition-all">
-                      <img 
-                        src={product.images[review.photoIndex]} 
-                        alt="User review attachment" 
+                      <img
+                        src={product.images[review.photoIndex]}
+                        alt="User review attachment"
                         className="w-full h-full object-contain"
                       />
                     </div>
@@ -423,9 +423,9 @@ export default function CustomerReview({ product }) {
       {/* Form: Write a Review */}
       <div className="max-w-7xl mx-auto px-4 mt-12 w-full">
         <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-xs">
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            
+
             {/* Left Block: Heading and rating stars */}
             <div className="lg:col-span-4 space-y-5">
               <div className="space-y-2">
@@ -451,12 +451,11 @@ export default function CustomerReview({ product }) {
                       onMouseLeave={() => setHoverRating(0)}
                       className="cursor-pointer transition-transform active:scale-90"
                     >
-                      <Star 
-                        className={`w-6 h-6 ${
-                          s <= (hoverRating || ratingInput) 
-                            ? 'fill-amber-400 text-amber-400' 
+                      <Star
+                        className={`w-6 h-6 ${s <= (hoverRating || ratingInput)
+                            ? 'fill-amber-400 text-amber-400'
                             : 'text-slate-300 hover:text-amber-400'
-                        }`} 
+                          }`}
                       />
                     </button>
                   ))}
@@ -487,9 +486,9 @@ export default function CustomerReview({ product }) {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1">
                       <label className="text-[10px] font-extrabold uppercase tracking-wider text-slate-500">Your Name</label>
-                      <input 
-                        type="text" 
-                        required 
+                      <input
+                        type="text"
+                        required
                         placeholder="Enter your name"
                         className="w-full bg-slate-50 border border-slate-200 focus:border-blue-600 focus:bg-white text-xs sm:text-sm rounded-xl py-2.5 px-3.5 outline-none transition-all"
                         value={formName}
@@ -499,9 +498,9 @@ export default function CustomerReview({ product }) {
 
                     <div className="space-y-1">
                       <label className="text-[10px] font-extrabold uppercase tracking-wider text-slate-500">Your Email</label>
-                      <input 
-                        type="email" 
-                        required 
+                      <input
+                        type="email"
+                        required
                         placeholder="Enter your email"
                         className="w-full bg-slate-50 border border-slate-200 focus:border-blue-600 focus:bg-white text-xs sm:text-sm rounded-xl py-2.5 px-3.5 outline-none transition-all"
                         value={formEmail}
@@ -514,8 +513,8 @@ export default function CustomerReview({ product }) {
                     <div className="space-y-4">
                       <div className="space-y-1">
                         <label className="text-[10px] font-extrabold uppercase tracking-wider text-slate-500">Review Title (Optional)</label>
-                        <input 
-                          type="text" 
+                        <input
+                          type="text"
                           placeholder="Summarize your experience"
                           className="w-full bg-slate-50 border border-slate-200 focus:border-blue-600 focus:bg-white text-xs sm:text-sm rounded-xl py-2.5 px-3.5 outline-none transition-all"
                           value={formTitle}
@@ -531,8 +530,8 @@ export default function CustomerReview({ product }) {
 
                   <div className="space-y-1">
                     <label className="text-[10px] font-extrabold uppercase tracking-wider text-slate-500">Your Review</label>
-                    <textarea 
-                      rows={4} 
+                    <textarea
+                      rows={4}
                       required
                       placeholder="Tell us more about the product..."
                       className="w-full bg-slate-50 border border-slate-200 focus:border-blue-600 focus:bg-white text-xs sm:text-sm rounded-xl py-2.5 px-3.5 outline-none transition-all resize-none"
@@ -542,8 +541,8 @@ export default function CustomerReview({ product }) {
                   </div>
 
                   <div className="text-right">
-                    <button 
-                      type="submit" 
+                    <button
+                      type="submit"
                       className="bg-[#0a1128] hover:bg-[#121c3b] text-white font-bold py-2.5 px-6 rounded-xl transition-all cursor-pointer text-xs shadow-md"
                     >
                       Submit Review

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { 
-  Heart, 
-  ChevronLeft, 
-  ChevronRight, 
-  ShoppingBag 
+import {
+  Heart,
+  ChevronLeft,
+  ChevronRight,
+  ShoppingBag
 } from 'lucide-react';
 
 // Import assets
@@ -180,14 +180,14 @@ const DEFAULT_FALLBACK_RELATED = [
 ];
 
 export default function RelatedProducts({ product, onSelectProduct }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [favorites, setFavorites] = useState({});
+
   if (!product) return null;
 
   // Retrieve matching items excluding current product
   const rawItems = RELATED_ITEMS_BY_CATEGORY[product.category] || DEFAULT_FALLBACK_RELATED;
   const items = rawItems.filter(item => item.id !== product.id);
-
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [favorites, setFavorites] = useState({});
 
   const handleNext = () => {
     if (currentIndex + 4 < items.length) {
@@ -229,7 +229,7 @@ export default function RelatedProducts({ product, onSelectProduct }) {
   return (
     <div className="w-full bg-[#f8fafc] text-slate-800 py-12 border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 w-full space-y-10 relative">
-        
+
         {/* Header section with gold divider lines */}
         <div className="text-center max-w-xl mx-auto">
           <div className="flex items-center justify-center gap-3 mb-2">
@@ -249,14 +249,13 @@ export default function RelatedProducts({ product, onSelectProduct }) {
 
         {/* Carousel Slider Panel */}
         <div className="relative px-2 sm:px-10">
-          
+
           {/* Left Arrow */}
           <button
             onClick={handlePrev}
             disabled={currentIndex === 0}
-            className={`absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-600 shadow-sm transition-all z-10 cursor-pointer ${
-              currentIndex === 0 ? 'opacity-40 cursor-not-allowed' : 'hover:bg-slate-50 hover:text-slate-900 active:scale-95'
-            }`}
+            className={`absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-600 shadow-sm transition-all z-10 cursor-pointer ${currentIndex === 0 ? 'opacity-40 cursor-not-allowed' : 'hover:bg-slate-50 hover:text-slate-900 active:scale-95'
+              }`}
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
@@ -264,18 +263,18 @@ export default function RelatedProducts({ product, onSelectProduct }) {
           {/* Slider track displaying 4 cards responsive */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {visibleItems.map((item) => (
-              <div 
+              <div
                 key={item.id}
                 className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/80 bg-white hover:border-blue-500/30 hover:shadow-lg transition-all duration-300 h-full p-4"
               >
                 {/* Image card container */}
                 <div className="relative aspect-square w-full overflow-hidden rounded-xl bg-slate-50/30 flex items-center justify-center mb-4">
-                  <img 
-                    src={item.image} 
-                    alt={item.title} 
+                  <img
+                    src={item.image}
+                    alt={item.title}
                     className="w-full h-full object-contain p-2 transition-transform duration-500 ease-out group-hover:scale-105"
                   />
-                  
+
                   {/* Wishlist Heart */}
                   <button
                     onClick={() => toggleFavorite(item.id)}
@@ -325,9 +324,8 @@ export default function RelatedProducts({ product, onSelectProduct }) {
           <button
             onClick={handleNext}
             disabled={currentIndex + 4 >= items.length}
-            className={`absolute right-0 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-600 shadow-sm transition-all z-10 cursor-pointer ${
-              currentIndex + 4 >= items.length ? 'opacity-40 cursor-not-allowed' : 'hover:bg-slate-50 hover:text-slate-900 active:scale-95'
-            }`}
+            className={`absolute right-0 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-600 shadow-sm transition-all z-10 cursor-pointer ${currentIndex + 4 >= items.length ? 'opacity-40 cursor-not-allowed' : 'hover:bg-slate-50 hover:text-slate-900 active:scale-95'
+              }`}
           >
             <ChevronRight className="w-5 h-5" />
           </button>
@@ -341,9 +339,8 @@ export default function RelatedProducts({ product, onSelectProduct }) {
               <button
                 key={dIdx}
                 onClick={() => setCurrentIndex(dIdx)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  currentIndex === dIdx ? 'bg-blue-900 scale-125 w-4' : 'bg-slate-200 hover:bg-slate-300'
-                }`}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${currentIndex === dIdx ? 'bg-blue-900 scale-125 w-4' : 'bg-slate-200 hover:bg-slate-300'
+                  }`}
               />
             ))}
           </div>
