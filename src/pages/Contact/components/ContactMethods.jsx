@@ -30,14 +30,48 @@ const contactItems = [
 
 export default function ContactMethods() {
   return (
-    <section className="bg-slate-50 px-4 py-14 lg:px-8">
+    <section className="bg-slate-50 px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-14">
       <div className="mx-auto max-w-6xl">
 
-        {/* Main Contact Information Box */}
-        <div className="overflow-hidden rounded-[28px] border border-slate-200/80 bg-white shadow-[0_20px_50px_-20px_rgba(15,23,42,0.14)]">
+        {/* =================================================
+            MAIN CONTACT INFORMATION BOX
+        ================================================= */}
+        <div
+          className="
+            overflow-hidden
+            rounded-2xl
+            border
+            border-slate-200/80
+            bg-white
+            shadow-[0_20px_50px_-20px_rgba(15,23,42,0.14)]
 
-          {/* Equal 4-column layout */}
-          <div className="grid grid-cols-1 divide-y divide-slate-200 md:grid-cols-2 md:divide-x md:divide-y-0 lg:grid-cols-4">
+            sm:rounded-[24px]
+            lg:rounded-[28px]
+          "
+        >
+
+          {/* =================================================
+              RESPONSIVE GRID
+
+              Mobile  : 1 column
+              Tablet  : 2 columns
+              Desktop : 4 columns
+          ================================================= */}
+          <div
+            className="
+              grid
+              grid-cols-1
+
+              divide-y
+              divide-slate-200
+
+              md:grid-cols-2
+              md:divide-x
+              md:divide-y-0
+
+              lg:grid-cols-4
+            "
+          >
 
             {contactItems.map((item) => {
               const Icon = item.icon;
@@ -67,117 +101,162 @@ export default function ContactMethods() {
                     flex
                     min-w-0
                     items-center
-                    gap-5
-                    px-7
-                    py-8
+
+                    gap-4
+
+                    px-5
+                    py-6
+
                     transition-all
                     duration-300
+
                     hover:bg-blue-600
+
+                    sm:gap-5
+                    sm:px-7
+                    sm:py-7
+
+                    lg:px-7
+                    lg:py-8
                   "
                 >
-                  {/* Icon */}
+
+                  {/* =================================================
+                      ICON
+                  ================================================= */}
                   <div
                     className="
                       flex
-                      h-16
-                      w-16
+                      h-12
+                      w-12
                       shrink-0
                       items-center
                       justify-center
+
                       rounded-full
+
                       border
                       border-blue-100/80
+
                       bg-[#eef2ff]
+
                       transition-all
                       duration-300
+
                       group-hover:border-white
                       group-hover:bg-white
+
+                      sm:h-14
+                      sm:w-14
+
+                      lg:h-16
+                      lg:w-16
                     "
                   >
                     <Icon
                       className="
-                        h-7
-                        w-7
+                        h-5
+                        w-5
                         text-blue-600
+
                         transition-colors
                         duration-300
+
                         group-hover:text-blue-600
+
+                        sm:h-6
+                        sm:w-6
+
+                        lg:h-7
+                        lg:w-7
                       "
                       strokeWidth={2}
                     />
                   </div>
 
-                  {/* Text Content */}
+
+                  {/* =================================================
+                      TEXT CONTENT
+                  ================================================= */}
                   <div className="min-w-0 flex-1">
 
-                    {/* Heading */}
+                    {/* =================================================
+                        HEADING
+                    ================================================= */}
                     <h3
                       className="
-                        text-[16px]
+                        m-0
+
+                        text-[15px]
                         font-bold
                         leading-5
                         text-[#07143f]
+
                         transition-colors
                         duration-300
+
                         group-hover:!text-white
+
+                        sm:text-[16px]
                       "
-                      style={{
-                        margin: 0,
-                        whiteSpace: "nowrap",
-                        overflow: "hidden",
-                        textOverflow: "ellipsis",
-                      }}
                     >
                       {item.label}
                     </h3>
 
-                    {/* Main Content */}
+
+                    {/* =================================================
+                        MAIN VALUE
+                    ================================================= */}
                     <p
                       className="
-                        mt-1.5
+                        m-0
+                        mt-1
+
                         text-[13px]
                         font-normal
                         leading-5
                         text-slate-600
+
                         transition-colors
                         duration-300
+
                         group-hover:!text-white
+
+                        sm:text-sm
                       "
-                      style={{
-                        marginBottom: 0,
-                        whiteSpace: "normal",
-                        overflowWrap: "break-word",
-                        wordBreak: "normal",
-                      }}
                     >
                       {item.value}
                     </p>
 
-                    {/* Location Sub Text */}
+
+                    {/* =================================================
+                        LOCATION SUB TEXT
+                    ================================================= */}
                     {item.subValue && (
                       <p
                         className="
+                          m-0
                           mt-0.5
+
                           text-[11px]
                           font-normal
                           leading-4
                           text-slate-500
+
                           transition-colors
                           duration-300
+
                           group-hover:!text-blue-50
+
+                          sm:text-xs
                         "
-                        style={{
-                          marginBottom: 0,
-                          whiteSpace: "normal",
-                          overflowWrap: "break-word",
-                          wordBreak: "normal",
-                        }}
                       >
                         {item.subValue}
                       </p>
                     )}
 
                   </div>
+
                 </Wrapper>
               );
             })}

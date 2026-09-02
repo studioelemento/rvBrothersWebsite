@@ -74,6 +74,7 @@ const Icon = ({ type }) => {
   return null;
 };
 
+
 // ========================================
 // FEATURE ITEM
 // ========================================
@@ -90,6 +91,7 @@ const FeatureItem = ({ icon, title, text }) => {
     </div>
   );
 };
+
 
 // ========================================
 // MAIN COMPONENT
@@ -124,12 +126,12 @@ export default function BrandStatement() {
 
         {/* ========================================
             MAIN CONTENT
-            ======================================== */}
+        ======================================== */}
         <div className="brand-main">
 
           {/* ======================================
               LEFT CONTENT
-              ====================================== */}
+          ====================================== */}
           <div className="brand-left">
 
             <div className="brand-label">
@@ -154,7 +156,7 @@ export default function BrandStatement() {
 
             {/* ======================================
                 FOUR FEATURES
-                ====================================== */}
+            ====================================== */}
             <div className="brand-features">
               {features.map((feature) => (
                 <FeatureItem
@@ -168,7 +170,7 @@ export default function BrandStatement() {
 
             {/* ======================================
                 BUTTONS
-                ====================================== */}
+            ====================================== */}
             <div className="brand-buttons">
 
               <button
@@ -194,11 +196,13 @@ export default function BrandStatement() {
               </button>
 
             </div>
+
           </div>
+
 
           {/* ======================================
               RIGHT IMAGE
-              ====================================== */}
+          ====================================== */}
           <div className="brand-right">
 
             <img
@@ -220,11 +224,13 @@ export default function BrandStatement() {
             </div>
 
           </div>
+
         </div>
+
 
         {/* ========================================
             BOTTOM BLUE STATEMENT
-            ======================================== */}
+        ======================================== */}
         <div className="brand-bottom">
 
           {/* RV LOGO */}
@@ -268,26 +274,24 @@ export default function BrandStatement() {
           </div>
 
         </div>
+
       </div>
+
 
       {/* ========================================
           STYLES
-          ======================================== */}
+      ======================================== */}
       <style>{`
 
         /* ========================================
            MAIN SECTION
-           ======================================== */
+        ======================================== */
 
         .brand-statement-section {
           width: 100%;
-
           background: #f5f7fc;
-
           padding: 28px 22px 40px;
-
           box-sizing: border-box;
-
           overflow: hidden;
 
           font-family:
@@ -300,9 +304,7 @@ export default function BrandStatement() {
 
         .brand-statement-container {
           width: 100%;
-
           max-width: 1490px;
-
           margin: 0 auto;
 
           background: #ffffff;
@@ -319,9 +321,10 @@ export default function BrandStatement() {
             0 8px 30px rgba(15, 35, 75, 0.08);
         }
 
+
         /* ========================================
            MAIN CONTENT
-           ======================================== */
+        ======================================== */
 
         .brand-main {
           position: relative;
@@ -337,9 +340,10 @@ export default function BrandStatement() {
           overflow: hidden;
         }
 
+
         /* ========================================
            LEFT CONTENT
-           ======================================== */
+        ======================================== */
 
         .brand-left {
           position: relative;
@@ -357,6 +361,7 @@ export default function BrandStatement() {
           justify-content: flex-start;
         }
 
+
         .brand-label {
           color: #183ed5;
 
@@ -369,6 +374,7 @@ export default function BrandStatement() {
           margin-bottom: 24px;
         }
 
+
         .brand-top-line {
           width: 48px;
 
@@ -378,6 +384,7 @@ export default function BrandStatement() {
 
           margin-bottom: 39px;
         }
+
 
         .brand-left h2 {
           margin: 0;
@@ -393,9 +400,11 @@ export default function BrandStatement() {
           font-weight: 800;
         }
 
+
         .brand-left h2 span {
           color: #2949d8;
         }
+
 
         .brand-heading-line {
           width: 48px;
@@ -406,6 +415,7 @@ export default function BrandStatement() {
 
           margin: 34px 0 22px;
         }
+
 
         .brand-description {
           max-width: 570px;
@@ -419,9 +429,10 @@ export default function BrandStatement() {
           line-height: 1.62;
         }
 
+
         /* ========================================
            FEATURES
-           ======================================== */
+        ======================================== */
 
         .brand-features {
           display: grid;
@@ -433,6 +444,7 @@ export default function BrandStatement() {
 
           margin-top: 27px;
         }
+
 
         .brand-feature {
           min-width: 0;
@@ -447,9 +459,11 @@ export default function BrandStatement() {
             transform 0.3s ease;
         }
 
+
         .brand-feature:first-child {
           padding-left: 0;
         }
+
 
         .brand-feature:last-child {
           padding-right: 0;
@@ -457,9 +471,11 @@ export default function BrandStatement() {
           border-right: none;
         }
 
+
         .brand-feature:hover {
           transform: translateY(-4px);
         }
+
 
         .brand-feature-icon {
           width: 58px;
@@ -479,11 +495,13 @@ export default function BrandStatement() {
           justify-content: center;
         }
 
+
         .brand-feature-icon svg {
           width: 29px;
 
           height: 29px;
         }
+
 
         .brand-feature h3 {
           margin: 0 0 8px;
@@ -497,6 +515,7 @@ export default function BrandStatement() {
           font-weight: 800;
         }
 
+
         .brand-feature p {
           margin: 0;
 
@@ -507,9 +526,10 @@ export default function BrandStatement() {
           line-height: 1.55;
         }
 
+
         /* ========================================
            BUTTONS
-           ======================================== */
+        ======================================== */
 
         .brand-buttons {
           display: flex;
@@ -522,6 +542,7 @@ export default function BrandStatement() {
 
           width: 100%;
         }
+
 
         .brand-primary-button,
         .brand-secondary-button {
@@ -558,6 +579,7 @@ export default function BrandStatement() {
             border-color 0.25s ease;
         }
 
+
         .brand-primary-button {
           width: 235px;
 
@@ -573,6 +595,7 @@ export default function BrandStatement() {
             0 8px 18px rgba(23, 59, 200, 0.2);
         }
 
+
         .brand-secondary-button {
           width: 280px;
 
@@ -585,6 +608,7 @@ export default function BrandStatement() {
           color: #07163c;
         }
 
+
         .brand-primary-button:hover {
           transform: translateY(-3px);
 
@@ -594,6 +618,7 @@ export default function BrandStatement() {
             0 12px 25px rgba(23, 59, 200, 0.3);
         }
 
+
         .brand-secondary-button:hover {
           transform: translateY(-3px);
 
@@ -601,6 +626,7 @@ export default function BrandStatement() {
 
           border-color: #174de0;
         }
+
 
         .brand-primary-button strong,
         .brand-secondary-button strong {
@@ -614,14 +640,16 @@ export default function BrandStatement() {
             transform 0.25s ease;
         }
 
+
         .brand-primary-button:hover strong,
         .brand-secondary-button:hover strong {
           transform: translateX(5px);
         }
 
+
         /* ========================================
            RIGHT IMAGE
-           ======================================== */
+        ======================================== */
 
         .brand-right {
           position: relative;
@@ -639,6 +667,7 @@ export default function BrandStatement() {
           z-index: 2;
         }
 
+
         .brand-image {
           width: 100%;
 
@@ -653,9 +682,10 @@ export default function BrandStatement() {
           transform: scale(1.02);
         }
 
+
         /* ========================================
            IMAGE FADE
-           ======================================== */
+        ======================================== */
 
         .brand-right::before {
           content: "";
@@ -684,9 +714,10 @@ export default function BrandStatement() {
             );
         }
 
+
         /* ========================================
            IMAGE MESSAGE
-           ======================================== */
+        ======================================== */
 
         .brand-side-message {
           position: absolute;
@@ -708,6 +739,7 @@ export default function BrandStatement() {
           opacity: 0;
         }
 
+
         .brand-side-message > span {
           width: 2px;
 
@@ -718,6 +750,7 @@ export default function BrandStatement() {
           background: #174de0;
         }
 
+
         .brand-side-message strong {
           font-size: 22px;
 
@@ -726,13 +759,15 @@ export default function BrandStatement() {
           font-weight: 800;
         }
 
+
         .brand-side-message b {
           color: #2949d8;
         }
 
+
         /* ========================================
            BOTTOM BLUE BANNER
-           ======================================== */
+        ======================================== */
 
         .brand-bottom {
           margin-top: 30px;
@@ -767,6 +802,7 @@ export default function BrandStatement() {
           gap: 25px;
         }
 
+
         .brand-bottom-logo {
           width: 82px;
 
@@ -789,12 +825,14 @@ export default function BrandStatement() {
           font-weight: 800;
         }
 
+
         .brand-bottom-title {
           border-left:
             1px solid rgba(255, 255, 255, 0.4);
 
           padding-left: 27px;
         }
+
 
         .brand-bottom-title h3 {
           margin: 0 0 5px;
@@ -806,6 +844,7 @@ export default function BrandStatement() {
           font-weight: 800;
         }
 
+
         .brand-bottom-title h4 {
           margin: 0;
 
@@ -815,6 +854,7 @@ export default function BrandStatement() {
 
           font-weight: 700;
         }
+
 
         .brand-bottom-description {
           border-left:
@@ -829,6 +869,7 @@ export default function BrandStatement() {
           line-height: 1.65;
         }
 
+
         .brand-bottom-final {
           border-left:
             1px solid rgba(255, 255, 255, 0.4);
@@ -841,6 +882,7 @@ export default function BrandStatement() {
 
           gap: 16px;
         }
+
 
         .brand-bottom-final-icon {
           width: 52px;
@@ -860,9 +902,11 @@ export default function BrandStatement() {
           justify-content: center;
         }
 
+
         .brand-bottom-final-icon svg {
           stroke: #ffffff;
         }
+
 
         .brand-bottom-final strong {
           font-size: 15px;
@@ -870,9 +914,10 @@ export default function BrandStatement() {
           line-height: 1.5;
         }
 
+
         /* ========================================
            LARGE TABLET / SMALL DESKTOP
-           ======================================== */
+        ======================================== */
 
         @media (max-width: 1250px) {
 
@@ -882,13 +927,16 @@ export default function BrandStatement() {
             padding-right: 30px;
           }
 
+
           .brand-main {
             grid-template-columns: 45% 55%;
           }
 
+
           .brand-left h2 {
             font-size: 43px;
           }
+
 
           .brand-feature {
             padding-left: 9px;
@@ -896,9 +944,11 @@ export default function BrandStatement() {
             padding-right: 9px;
           }
 
+
           .brand-buttons {
             gap: 15px;
           }
+
 
           .brand-primary-button {
             width: 210px;
@@ -906,15 +956,18 @@ export default function BrandStatement() {
             min-width: 210px;
           }
 
+
           .brand-secondary-button {
             width: 250px;
 
             min-width: 250px;
           }
 
+
           .brand-right {
             margin-left: -25px;
           }
+
 
           .brand-bottom {
             grid-template-columns:
@@ -929,9 +982,10 @@ export default function BrandStatement() {
           }
         }
 
+
         /* ========================================
            TABLET
-           ======================================== */
+        ======================================== */
 
         @media (max-width: 950px) {
 
@@ -941,9 +995,11 @@ export default function BrandStatement() {
             overflow: visible;
           }
 
+
           .brand-left {
             padding: 10px 10px 40px;
           }
+
 
           .brand-right {
             min-height: 600px;
@@ -952,6 +1008,7 @@ export default function BrandStatement() {
 
             border-radius: 12px;
           }
+
 
           .brand-right::before {
             width: 30%;
@@ -965,17 +1022,20 @@ export default function BrandStatement() {
               );
           }
 
+
           .brand-bottom {
             grid-template-columns: 1fr 1fr;
 
             gap: 25px;
           }
 
+
           .brand-bottom-description {
             border-left: none;
 
             padding-left: 0;
           }
+
 
           .brand-bottom-final {
             border-left: none;
@@ -984,9 +1044,10 @@ export default function BrandStatement() {
           }
         }
 
+
         /* ========================================
            MOBILE
-           ======================================== */
+        ======================================== */
 
         @media (max-width: 650px) {
 
@@ -994,11 +1055,13 @@ export default function BrandStatement() {
             padding: 15px 10px 25px;
           }
 
+
           .brand-statement-container {
             padding: 35px 20px 25px;
 
             border-radius: 12px;
           }
+
 
           .brand-label {
             font-size: 13px;
@@ -1006,9 +1069,11 @@ export default function BrandStatement() {
             letter-spacing: 2px;
           }
 
+
           .brand-top-line {
             margin-bottom: 25px;
           }
+
 
           .brand-left h2 {
             font-size: 34px;
@@ -1016,9 +1081,15 @@ export default function BrandStatement() {
             letter-spacing: -1px;
           }
 
+
           .brand-description {
             font-size: 16px;
           }
+
+
+          /* ========================================
+             MOBILE FEATURES
+          ======================================== */
 
           .brand-features {
             grid-template-columns: 1fr 1fr;
@@ -1026,15 +1097,22 @@ export default function BrandStatement() {
             row-gap: 25px;
           }
 
+
           .brand-feature:nth-child(2) {
             border-right: none;
           }
+
+
+          /* ========================================
+             MOBILE BUTTONS
+          ======================================== */
 
           .brand-buttons {
             flex-direction: column;
 
             gap: 12px;
           }
+
 
           .brand-primary-button,
           .brand-secondary-button {
@@ -1043,21 +1121,54 @@ export default function BrandStatement() {
             min-width: 0;
           }
 
+
+          /* ========================================
+             MOBILE IMAGE
+             
+             CHANGED:
+             470px → 320px
+
+             This makes the image more compact
+             on mobile while keeping desktop intact.
+          ======================================== */
+
           .brand-right {
-            min-height: 470px;
+            min-height: 320px;
+
+            height: 320px;
 
             margin-left: 0;
+
+            border-radius: 12px;
           }
+
+
+          .brand-image {
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            object-position: center;
+          }
+
 
           .brand-right::before {
             width: 40%;
           }
+
+
+          /* ========================================
+             MOBILE BOTTOM SECTION
+          ======================================== */
 
           .brand-bottom {
             grid-template-columns: 1fr;
 
             padding: 25px;
           }
+
 
           .brand-bottom-title,
           .brand-bottom-description,
@@ -1067,12 +1178,95 @@ export default function BrandStatement() {
             padding-left: 0;
           }
 
+
           .brand-bottom-logo {
             width: 65px;
 
             height: 65px;
 
             font-size: 28px;
+          }
+        }
+
+
+        /* ========================================
+           VERY SMALL MOBILE
+        ======================================== */
+
+        @media (max-width: 400px) {
+
+          .brand-statement-container {
+            padding-left: 16px;
+
+            padding-right: 16px;
+          }
+
+
+          .brand-left h2 {
+            font-size: 31px;
+          }
+
+
+          .brand-description {
+            font-size: 15px;
+
+            line-height: 1.6;
+          }
+
+
+          .brand-features {
+            grid-template-columns: 1fr;
+            row-gap: 20px;
+          }
+
+
+          .brand-feature {
+            padding:
+              0 0 20px;
+
+            border-right: none;
+
+            border-bottom:
+              1px solid #dce2ed;
+          }
+
+
+          .brand-feature:last-child {
+            border-bottom: none;
+
+            padding-bottom: 0;
+          }
+
+
+          /*
+             Even more compact image for
+             narrow phones.
+          */
+
+          .brand-right {
+            min-height: 300px;
+
+            height: 300px;
+          }
+
+
+          .brand-bottom {
+            padding: 20px;
+          }
+
+
+          .brand-bottom-title h3 {
+            font-size: 20px;
+          }
+
+
+          .brand-bottom-title h4 {
+            font-size: 18px;
+          }
+
+
+          .brand-bottom-description {
+            font-size: 13px;
           }
         }
 
