@@ -1,8 +1,20 @@
 import React, { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+import PublicLayout from './layouts/PublicLayout';
+import AdminLayout from './layouts/AdminLayout';
+
+import AdminDashboard from './pages/Admin/Dashboard/Dashboard';
+import AdminOrders from './pages/Admin/Orders/Orders';
+import AdminProducts from './pages/Admin/Inventory/Products';
+import AdminCategories from './pages/Admin/Inventory/Categories';
+import AdminBrands from './pages/Admin/Inventory/Brands';
+import AdminCoupons from './pages/Admin/Inventory/Coupons';
+import AdminAnalysis from './pages/Admin/Inventory/Analysis';
+import AdminPosts from './pages/Admin/Posts/Posts';
+import AdminCustomers from './pages/Admin/Customers/Customers';
+import AdminQueries from './pages/Admin/Queries/Queries';
+import AdminSettings from './pages/Admin/Settings/Settings';
 
 import Home from './pages/Home/Home';
 import Business from './pages/Businesses/Businesses';
@@ -144,65 +156,45 @@ function CollectiblesDiscussion() {
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#020617] text-slate-100 antialiased font-sans flex flex-col justify-between selection:bg-blue-600 selection:text-white">
-
+    <>
       <ScrollToTop />
+      
+      <Routes>
+        
+        {/* PUBLIC ROUTES (Uses Navbar & Footer) */}
+        <Route element={<PublicLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/businesses" element={<Business />} />
+          <Route path="/shop" element={<Product />} />
+          <Route path="/brands" element={<Brands />} />
+          <Route path="/brands/collectibles" element={<CollectiblesDiscussion />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Partner />} />
+        </Route>
 
-      <Navbar />
+        {/* ADMIN ROUTES (Uses Sidebar) */}
+        <Route path="/admin" element={<AdminLayout />}>
+          {/* Default redirect or dashboard */}
+          <Route index element={<AdminDashboard />} />
+          <Route path="dashboard" element={<AdminDashboard />} />
+          <Route path="orders" element={<AdminOrders />} />
+          
+          {/* Inventory */}
+          <Route path="inventory/products" element={<AdminProducts />} />
+          <Route path="inventory/categories" element={<AdminCategories />} />
+          <Route path="inventory/brands" element={<AdminBrands />} />
+          <Route path="inventory/coupons" element={<AdminCoupons />} />
+          <Route path="inventory/analysis" element={<AdminAnalysis />} />
+          
+          {/* Other Admin Pages */}
+          <Route path="posts" element={<AdminPosts />} />
+          <Route path="customers" element={<AdminCustomers />} />
+          <Route path="queries" element={<AdminQueries />} />
+          <Route path="settings" element={<AdminSettings />} />
+        </Route>
 
-      <main className="flex-grow">
-
-        <Routes>
-
-          {/* HOME */}
-          <Route
-            path="/"
-            element={<Home />}
-          />
-
-          {/* BUSINESSES */}
-          <Route
-            path="/businesses"
-            element={<Business />}
-          />
-
-          {/* SHOP */}
-          <Route
-            path="/shop"
-            element={<Product />}
-          />
-
-          {/* BRANDS */}
-          <Route
-            path="/brands"
-            element={<Brands />}
-          />
-
-          {/* COLLECTIBLES DISCUSSION */}
-          <Route
-            path="/brands/collectibles"
-            element={<CollectiblesDiscussion />}
-          />
-
-          {/* ABOUT */}
-          <Route
-            path="/about"
-            element={<About />}
-          />
-
-          {/* CONTACT / PARTNER */}
-          <Route
-            path="/contact"
-            element={<Partner />}
-          />
-
-        </Routes>
-
-      </main>
-
-      <Footer />
-
-    </div>
+      </Routes>
+    </>
   );
 }
 

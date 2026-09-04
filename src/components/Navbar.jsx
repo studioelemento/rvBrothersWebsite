@@ -24,7 +24,7 @@ export default function Navbar() {
   return (
     <>
       {/* 1. TOP ANNOUNCEMENT BAR */}
-      <div className="w-full bg-[#030712] border-b border-slate-900 text-slate-400 text-xs py-3 px-4 relative z-50">
+      <div className="hidden md:block w-full bg-[#030712] border-b border-slate-900 text-slate-400 text-xs py-3 px-4 relative z-50">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
           <div className="flex items-center gap-2 hover:text-slate-200 transition-colors cursor-default">
             <Award className="w-4 h-4 text-blue-500" />
@@ -93,7 +93,7 @@ export default function Navbar() {
               to="/brands"
               className={`text-sm font-semibold relative py-2 transition-colors ${isActive('/brands') ? 'text-white' : 'text-slate-300 hover:text-white'}`}
             >
-              Brands
+              Discussion
               {isActive('/brands') && (
                 <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 rounded-full"></span>
               )}
