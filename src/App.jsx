@@ -6,6 +6,10 @@ import AdminLayout from './layouts/AdminLayout';
 
 import AdminDashboard from './pages/Admin/Dashboard/Dashboard';
 import AdminOrders from './pages/Admin/Orders/Orders';
+import AdminOrdersDelivered from './pages/Admin/Orders/OrdersDelivered';
+import AdminOrdersReceived from './pages/Admin/Orders/OrdersReceived';
+import AdminOrdersShipped from './pages/Admin/Orders/OrdersShipped';
+import AdminOrdersPickup from './pages/Admin/Orders/OrdersPickup';
 import AdminProducts from './pages/Admin/Inventory/Products';
 import AdminCategories from './pages/Admin/Inventory/Categories';
 import AdminBrands from './pages/Admin/Inventory/Brands';
@@ -178,6 +182,10 @@ function App() {
           <Route index element={<AdminDashboard />} />
           <Route path="dashboard" element={<AdminDashboard />} />
           <Route path="orders" element={<AdminOrders />} />
+          <Route path="orders/delivered/:id" element={<AdminOrdersDelivered />} />
+          <Route path="orders/received/:id" element={<AdminOrdersReceived />} />
+          <Route path="orders/shipped/:id" element={<AdminOrdersShipped />} />
+          <Route path="orders/pickup/:id" element={<AdminOrdersPickup />} />
           
           {/* Inventory */}
           <Route path="inventory/products" element={<AdminProducts />} />
