@@ -4,21 +4,37 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import PublicLayout from './layouts/PublicLayout';
 import AdminLayout from './layouts/AdminLayout';
 
+// --------------------------------------------------
+// ADMIN PAGES
+// --------------------------------------------------
+
 import AdminDashboard from './pages/Admin/Dashboard/Dashboard';
+
 import AdminOrders from './pages/Admin/Orders/Orders';
 import AdminOrdersDelivered from './pages/Admin/Orders/OrdersDelivered';
 import AdminOrdersReceived from './pages/Admin/Orders/OrdersReceived';
 import AdminOrdersShipped from './pages/Admin/Orders/OrdersShipped';
 import AdminOrdersPickup from './pages/Admin/Orders/OrdersPickup';
+
 import AdminProducts from './pages/Admin/Inventory/Products';
 import AdminCategories from './pages/Admin/Inventory/Categories';
 import AdminBrands from './pages/Admin/Inventory/Brands';
 import AdminCoupons from './pages/Admin/Inventory/Coupons';
 import AdminAnalysis from './pages/Admin/Inventory/Analysis';
+
 import AdminPosts from './pages/Admin/Posts/Posts';
+
 import AdminCustomers from './pages/Admin/Customers/Customers';
+import CustomerDetails from './pages/Admin/Customers/CustomerDetails';
+
 import AdminQueries from './pages/Admin/Queries/Queries';
+import QueryDetails from './pages/Admin/Queries/QueryDetails';
+
 import AdminSettings from './pages/Admin/Settings/Settings';
+
+// --------------------------------------------------
+// PUBLIC PAGES
+// --------------------------------------------------
 
 import Home from './pages/Home/Home';
 import Business from './pages/Businesses/Businesses';
@@ -28,7 +44,6 @@ import About from './pages/About/About';
 import Partner from './pages/Contact/Partner';
 
 import collectiblesImage from './assets/collectibles.png';
-
 
 // --------------------------------------------------
 // SCROLL TO TOP
@@ -44,7 +59,6 @@ function ScrollToTop() {
   return null;
 }
 
-
 // --------------------------------------------------
 // COLLECTIBLES DISCUSSION PAGE
 // --------------------------------------------------
@@ -52,9 +66,10 @@ function ScrollToTop() {
 function CollectiblesDiscussion() {
   return (
     <section className="w-full bg-white">
-      
+
       {/* HERO IMAGE */}
       <div className="relative mx-auto w-full max-w-[1380px] overflow-hidden">
+
         <img
           src={collectiblesImage}
           alt="Rare collectibles"
@@ -66,8 +81,9 @@ function CollectiblesDiscussion() {
 
         {/* CONTENT */}
         <div className="absolute inset-0 flex items-end">
+
           <div className="w-full px-6 pb-10 md:px-10 md:pb-14 lg:px-16 lg:pb-16">
-            
+
             {/* CATEGORY */}
             <span className="inline-flex rounded-full bg-blue-600 px-4 py-2 text-xs font-bold tracking-[0.12em] text-white md:text-sm">
               MARKET INSIGHTS
@@ -89,12 +105,13 @@ function CollectiblesDiscussion() {
 
             {/* AUTHOR */}
             <div className="mt-7 flex items-center gap-4">
-              
+
               <div className="flex h-12 w-12 items-center justify-center rounded-full border border-blue-400 text-lg font-serif text-white md:h-14 md:w-14 md:text-xl">
                 RV
               </div>
 
               <div>
+
                 <p className="text-sm font-bold text-white md:text-base">
                   RV Brothers Team
                 </p>
@@ -102,18 +119,20 @@ function CollectiblesDiscussion() {
                 <p className="mt-1 text-xs text-white/80 md:text-sm">
                   May 18, 2025&nbsp; • &nbsp;6 min read
                 </p>
+
               </div>
 
             </div>
 
           </div>
-        </div>
-      </div>
 
+        </div>
+
+      </div>
 
       {/* ARTICLE CONTENT */}
       <article className="mx-auto max-w-[900px] px-6 py-12 md:px-10 md:py-16">
-        
+
         <h2 className="text-2xl font-bold tracking-[-0.025em] text-[#101b43] md:text-3xl">
           The Rising Value of Rare Collectibles
         </h2>
@@ -153,7 +172,6 @@ function CollectiblesDiscussion() {
   );
 }
 
-
 // --------------------------------------------------
 // APP
 // --------------------------------------------------
@@ -162,43 +180,181 @@ function App() {
   return (
     <>
       <ScrollToTop />
-      
+
       <Routes>
-        
-        {/* PUBLIC ROUTES (Uses Navbar & Footer) */}
+
+        {/* ==================================================
+            PUBLIC ROUTES
+            Uses Navbar & Footer
+        ================================================== */}
+
         <Route element={<PublicLayout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/businesses" element={<Business />} />
-          <Route path="/shop" element={<Product />} />
-          <Route path="/brands" element={<Brands />} />
-          <Route path="/brands/collectibles" element={<CollectiblesDiscussion />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Partner />} />
+
+          <Route
+            path="/"
+            element={<Home />}
+          />
+
+          <Route
+            path="/businesses"
+            element={<Business />}
+          />
+
+          <Route
+            path="/shop"
+            element={<Product />}
+          />
+
+          <Route
+            path="/brands"
+            element={<Brands />}
+          />
+
+          <Route
+            path="/brands/collectibles"
+            element={<CollectiblesDiscussion />}
+          />
+
+          <Route
+            path="/about"
+            element={<About />}
+          />
+
+          <Route
+            path="/contact"
+            element={<Partner />}
+          />
+
         </Route>
 
-        {/* ADMIN ROUTES (Uses Sidebar) */}
-        <Route path="/admin" element={<AdminLayout />}>
-          {/* Default redirect or dashboard */}
-          <Route index element={<AdminDashboard />} />
-          <Route path="dashboard" element={<AdminDashboard />} />
-          <Route path="orders" element={<AdminOrders />} />
-          <Route path="orders/delivered/:id" element={<AdminOrdersDelivered />} />
-          <Route path="orders/received/:id" element={<AdminOrdersReceived />} />
-          <Route path="orders/shipped/:id" element={<AdminOrdersShipped />} />
-          <Route path="orders/pickup/:id" element={<AdminOrdersPickup />} />
-          
-          {/* Inventory */}
-          <Route path="inventory/products" element={<AdminProducts />} />
-          <Route path="inventory/categories" element={<AdminCategories />} />
-          <Route path="inventory/brands" element={<AdminBrands />} />
-          <Route path="inventory/coupons" element={<AdminCoupons />} />
-          <Route path="inventory/analysis" element={<AdminAnalysis />} />
-          
-          {/* Other Admin Pages */}
-          <Route path="posts" element={<AdminPosts />} />
-          <Route path="customers" element={<AdminCustomers />} />
-          <Route path="queries" element={<AdminQueries />} />
-          <Route path="settings" element={<AdminSettings />} />
+        {/* ==================================================
+            ADMIN ROUTES
+            Uses Admin Sidebar
+        ================================================== */}
+
+        <Route
+          path="/admin"
+          element={<AdminLayout />}
+        >
+
+          {/* Dashboard */}
+          <Route
+            index
+            element={<AdminDashboard />}
+          />
+
+          <Route
+            path="dashboard"
+            element={<AdminDashboard />}
+          />
+
+          {/* ==================================================
+              ORDERS
+          ================================================== */}
+
+          <Route
+            path="orders"
+            element={<AdminOrders />}
+          />
+
+          <Route
+            path="orders/delivered/:id"
+            element={<AdminOrdersDelivered />}
+          />
+
+          <Route
+            path="orders/received/:id"
+            element={<AdminOrdersReceived />}
+          />
+
+          <Route
+            path="orders/shipped/:id"
+            element={<AdminOrdersShipped />}
+          />
+
+          <Route
+            path="orders/pickup/:id"
+            element={<AdminOrdersPickup />}
+          />
+
+          {/* ==================================================
+              INVENTORY
+          ================================================== */}
+
+          <Route
+            path="inventory/products"
+            element={<AdminProducts />}
+          />
+
+          <Route
+            path="inventory/categories"
+            element={<AdminCategories />}
+          />
+
+          <Route
+            path="inventory/brands"
+            element={<AdminBrands />}
+          />
+
+          <Route
+            path="inventory/coupons"
+            element={<AdminCoupons />}
+          />
+
+          <Route
+            path="inventory/analysis"
+            element={<AdminAnalysis />}
+          />
+
+          {/* ==================================================
+              POSTS
+          ================================================== */}
+
+          <Route
+            path="posts"
+            element={<AdminPosts />}
+          />
+
+          {/* ==================================================
+              CUSTOMERS
+          ================================================== */}
+
+          <Route
+            path="customers"
+            element={<AdminCustomers />}
+          />
+
+          {/* Customer Details */}
+          <Route
+            path="customers/view"
+            element={<CustomerDetails />}
+          />
+
+          {/* ==================================================
+              CUSTOMER QUERIES
+          ================================================== */}
+
+          {/* Customer Queries List */}
+          <Route
+            path="queries"
+            element={<AdminQueries />}
+          />
+
+          {/* Customer Query Details */}
+          <Route
+            path="queries/view"
+            element={<QueryDetails />}
+          />
+
+          {/* ==================================================
+              SETTINGS
+          ================================================== */}
+
+          <Route
+            path="settings"
+            element={<AdminSettings />}
+          />
+
         </Route>
 
       </Routes>
