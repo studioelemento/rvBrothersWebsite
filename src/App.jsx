@@ -23,6 +23,7 @@ import AdminCoupons from './pages/Admin/Inventory/Coupons';
 import AdminAnalysis from './pages/Admin/Inventory/Analysis';
 
 import AdminPosts from './pages/Admin/Posts/Posts';
+import AdminPostCategories from './pages/Admin/Posts/PostCategories';
 
 import AdminCustomers from './pages/Admin/Customers/Customers';
 import CustomerDetails from './pages/Admin/Customers/CustomerDetails';
@@ -311,8 +312,13 @@ function App() {
           ================================================== */}
 
           <Route
-            path="posts"
+            path="posts/all"
             element={<AdminPosts />}
+          />
+
+          <Route
+            path="posts/categories"
+            element={<AdminPostCategories />}
           />
 
           {/* ==================================================

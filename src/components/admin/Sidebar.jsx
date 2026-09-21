@@ -20,9 +20,11 @@ import {
 
 export default function Sidebar() {
   const [isInventoryOpen, setIsInventoryOpen] = useState(true);
+  const [isPostsOpen, setIsPostsOpen] = useState(true);
   const location = useLocation();
 
   const isInventoryActive = location.pathname.includes('/admin/inventory');
+  const isPostsActive = location.pathname.includes('/admin/posts');
 
   return (
     <aside className="w-[280px] h-screen bg-white border-r border-slate-100 flex flex-col sticky top-0 font-sans shadow-[4px_0_24px_rgba(0,0,0,0.02)]">
@@ -171,21 +173,63 @@ export default function Sidebar() {
           )}
         </div>
 
-        {/* Posts */}
+        {/* Posts (Dropdown) */}
         <div className="pt-2">
-          <NavLink
-            to="/admin/posts"
-            className={({ isActive }) => 
-              `flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-colors ${
-                isActive 
-                  ? 'bg-[#f4f2ff] text-[#3b12f6]' 
-                  : 'text-slate-500 hover:text-slate-800 hover:bg-slate-50'
-              }`
-            }
+          <button
+            onClick={() => setIsPostsOpen(!isPostsOpen)}
+            className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold transition-colors ${
+              isPostsActive || isPostsOpen
+                ? 'bg-[#f4f2ff] text-[#3b12f6]'
+                : 'text-slate-500 hover:text-slate-800 hover:bg-slate-50'
+            }`}
           >
-            <FileText size={20} strokeWidth={2} />
-            Posts
-          </NavLink>
+            <div className="flex items-center gap-3">
+              <FileText size={20} strokeWidth={2} />
+              Posts
+            </div>
+            {isPostsOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+          </button>
+
+          {/* Submenu */}
+          {isPostsOpen && (
+            <div className="mt-1 ml-4 pl-4 border-l border-slate-100 space-y-1">
+              <NavLink
+                to="/admin/posts/all"
+                className={({ isActive }) => 
+                  `flex items-center gap-3 px-4 py-2.5 rounded-xl text-[13px] font-semibold transition-colors ${
+                    isActive 
+                      ? 'bg-[#f4f2ff] text-[#3b12f6]' 
+                      : 'text-slate-500 hover:text-slate-800 hover:bg-slate-50'
+                  }`
+                }
+              >
+                {({ isActive }) => (
+                  <>
+                    {isActive ? <CircleDot size={14} strokeWidth={3} /> : <Circle size={14} strokeWidth={2.5} />}
+                    Posts
+                  </>
+                )}
+              </NavLink>
+
+              <NavLink
+                to="/admin/posts/categories"
+                className={({ isActive }) => 
+                  `flex items-center gap-3 px-4 py-2.5 rounded-xl text-[13px] font-semibold transition-colors ${
+                    isActive 
+                      ? 'bg-[#f4f2ff] text-[#3b12f6]' 
+                      : 'text-slate-500 hover:text-slate-800 hover:bg-slate-50'
+                  }`
+                }
+              >
+                {({ isActive }) => (
+                  <>
+                    {isActive ? <CircleDot size={14} strokeWidth={3} /> : <Circle size={14} strokeWidth={2.5} />}
+                    Post Categories
+                  </>
+                )}
+              </NavLink>
+            </div>
+          )}
         </div>
 
         {/* Customers */}
