@@ -15,10 +15,11 @@ import {
   Users, 
   MessageSquare, 
   Settings, 
-  LogOut 
+  LogOut,
+  X 
 } from 'lucide-react';
 
-export default function Sidebar() {
+export default function Sidebar({ onClose }) {
   const [isInventoryOpen, setIsInventoryOpen] = useState(true);
   const [isPostsOpen, setIsPostsOpen] = useState(true);
   const location = useLocation();
@@ -30,20 +31,26 @@ export default function Sidebar() {
     <aside className="w-[280px] h-screen bg-white border-r border-slate-100 flex flex-col sticky top-0 font-sans shadow-[4px_0_24px_rgba(0,0,0,0.02)]">
       
       {/* LOGO */}
-      <div className="px-8 py-8 flex items-center gap-3">
-        {/* We can use the text logo to closely match the image */}
-        <div className="text-[#3b12f6] text-4xl font-serif tracking-tighter font-bold">Rv</div>
-        <div className="flex flex-col">
-          <span className="text-[#101b43] font-bold text-sm tracking-widest leading-none mt-1">BROTHERS</span>
-          <span className="text-slate-400 text-[9px] font-semibold tracking-wider mt-1 uppercase">Business Consortium</span>
+      <div className="px-6 lg:px-8 py-6 lg:py-8 flex items-center justify-between gap-3">
+        <div className="flex items-center gap-3">
+          <div className="text-[#3b12f6] text-4xl font-serif tracking-tighter font-bold">Rv</div>
+          <div className="flex flex-col">
+            <span className="text-[#101b43] font-bold text-sm tracking-widest leading-none mt-1">BROTHERS</span>
+            <span className="text-slate-400 text-[9px] font-semibold tracking-wider mt-1 uppercase">Business Consortium</span>
+          </div>
         </div>
+        {onClose && (
+          <button onClick={onClose} className="lg:hidden p-2 text-slate-500 hover:bg-slate-50 rounded-lg transition-colors">
+            <X size={20} />
+          </button>
+        )}
       </div>
 
       {/* NAVIGATION */}
       <nav className="flex-1 overflow-y-auto px-4 pb-4 space-y-1 scrollbar-hide">
         
         {/* Dashboard */}
-        <NavLink
+        <NavLink onClick={onClose}
           to="/admin/dashboard"
           className={({ isActive }) => 
             `flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-colors ${
@@ -58,7 +65,7 @@ export default function Sidebar() {
         </NavLink>
 
         {/* Orders */}
-        <NavLink
+        <NavLink onClick={onClose}
           to="/admin/orders"
           className={({ isActive }) => 
             `flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-colors ${
@@ -92,7 +99,7 @@ export default function Sidebar() {
           {/* Submenu */}
           {isInventoryOpen && (
             <div className="mt-1 ml-4 pl-4 border-l border-slate-100 space-y-1">
-              <NavLink
+              <NavLink onClick={onClose}
                 to="/admin/inventory/products"
                 className={({ isActive }) => 
                   `flex items-center gap-3 px-4 py-2.5 rounded-xl text-[13px] font-semibold transition-colors ${
@@ -110,7 +117,7 @@ export default function Sidebar() {
                 )}
               </NavLink>
 
-              <NavLink
+              <NavLink onClick={onClose}
                 to="/admin/inventory/categories"
                 className={({ isActive }) => 
                   `flex items-center gap-3 px-4 py-2.5 rounded-xl text-[13px] font-semibold transition-colors ${
@@ -128,7 +135,7 @@ export default function Sidebar() {
                 )}
               </NavLink>
 
-              <NavLink
+              <NavLink onClick={onClose}
                 to="/admin/inventory/brands"
                 className={({ isActive }) => 
                   `flex items-center gap-3 px-4 py-2.5 rounded-xl text-[13px] font-semibold transition-colors ${
@@ -142,7 +149,7 @@ export default function Sidebar() {
                 Brands
               </NavLink>
 
-              <NavLink
+              <NavLink onClick={onClose}
                 to="/admin/inventory/coupons"
                 className={({ isActive }) => 
                   `flex items-center gap-3 px-4 py-2.5 rounded-xl text-[13px] font-semibold transition-colors ${
@@ -156,7 +163,7 @@ export default function Sidebar() {
                 Discount Coupons
               </NavLink>
 
-              <NavLink
+              <NavLink onClick={onClose}
                 to="/admin/inventory/analysis"
                 className={({ isActive }) => 
                   `flex items-center gap-3 px-4 py-2.5 rounded-xl text-[13px] font-semibold transition-colors ${
@@ -193,7 +200,7 @@ export default function Sidebar() {
           {/* Submenu */}
           {isPostsOpen && (
             <div className="mt-1 ml-4 pl-4 border-l border-slate-100 space-y-1">
-              <NavLink
+              <NavLink onClick={onClose}
                 to="/admin/posts/all"
                 className={({ isActive }) => 
                   `flex items-center gap-3 px-4 py-2.5 rounded-xl text-[13px] font-semibold transition-colors ${
@@ -211,7 +218,7 @@ export default function Sidebar() {
                 )}
               </NavLink>
 
-              <NavLink
+              <NavLink onClick={onClose}
                 to="/admin/posts/categories"
                 className={({ isActive }) => 
                   `flex items-center gap-3 px-4 py-2.5 rounded-xl text-[13px] font-semibold transition-colors ${
@@ -233,7 +240,7 @@ export default function Sidebar() {
         </div>
 
         {/* Customers */}
-        <NavLink
+        <NavLink onClick={onClose}
           to="/admin/customers"
           className={({ isActive }) => 
             `flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-colors ${
@@ -248,7 +255,7 @@ export default function Sidebar() {
         </NavLink>
 
         {/* Customer Queries */}
-        <NavLink
+        <NavLink onClick={onClose}
           to="/admin/queries"
           className={({ isActive }) => 
             `flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-colors ${
@@ -266,7 +273,7 @@ export default function Sidebar() {
 
       {/* FOOTER ACTIONS */}
       <div className="p-4 space-y-4">
-        <NavLink
+        <NavLink onClick={onClose}
           to="/admin/settings"
           className={({ isActive }) => 
             `flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-colors ${

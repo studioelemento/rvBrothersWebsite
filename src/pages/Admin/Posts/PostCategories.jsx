@@ -70,7 +70,7 @@ export default function PostCategories() {
             <input 
               type="text" 
               placeholder="Search categories..." 
-              className="pl-10 pr-4 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#3b12f6]/20 focus:border-[#3b12f6] w-[280px]"
+              className="pl-10 pr-4 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#3b12f6]/20 focus:border-[#3b12f6] w-full sm:w-[280px]"
             />
           </div>
 
@@ -171,7 +171,7 @@ export default function PostCategories() {
               </div>
             </div>
 
-            <div className="mt-8 flex items-center justify-center gap-3">
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
               <button 
                 onClick={() => setIsModalOpen(false)}
                 className="px-6 py-2.5 border border-slate-200 rounded-lg text-[13px] font-bold text-slate-700 hover:bg-slate-50 transition-colors bg-white w-full sm:w-auto"
